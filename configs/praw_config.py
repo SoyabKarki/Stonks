@@ -2,10 +2,9 @@ from dotenv import load_dotenv
 import os
 import praw
 
-# Load the .env file
 load_dotenv()
 
-# Access the environment variables
+# Environment variables
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 USER_AGENT = os.getenv("CLIENT_USER_AGENT")
