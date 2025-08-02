@@ -9,17 +9,34 @@ setup_logging()
 logger = logging.getLogger(__name__)
 
 
-def load_ticker_symbols() -> Set[str]:
+def _load_ticker_symbols() -> Set[str]:
     """Load ticker symbols from a CSV file"""
+    
     df = pd.read_csv("extract/us_symbols.csv")
     return set(df["ticker"].str.upper())
 
 
 def extract_ticker_symbols(text: str) -> Set[str]:
-    """Extract ticker symbols from given text"""
+    """
+    Extract valid stock ticker symbols from a block of text.
+
+    This function uses regular expressions to identify both dollar-prefixed
+    (e.g., "$AAPL") and standalone (e.g., "AAPL") ticker mentions, and then
+    filters them using a validated list of known symbols.
+
+    Parameters
+    ----------
+    text : str
+        The input text from which to extract ticker symbols.
+
+    Returns
+    -------
+    Set[str]
+        A set of matched and validated ticker symbols found in the text.
+    """
 
     # Load all available ticker symbols
-    tickers = load_ticker_symbols()
+    tickers = _load_ticker_symbols()
 
     # Patterns to match ticker symbols
     patterns = [
