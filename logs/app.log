@@ -273,3 +273,5 @@
 2025-08-03 03:08:58,383 - __main__ - INFO - Posts processed: 30
 2025-08-03 03:08:58,383 - __main__ - INFO - Posts with tickers: 21
 2025-08-03 03:08:58,383 - __main__ - INFO - Posts loaded: 21
+2025-08-03 16:47:42,203 - __main__ - INFO - Fetching news for 1
+2025-08-03 16:47:42,846 - __main__ - INFO - Found 100 news articles for 1
