@@ -20,3 +20,7 @@
 	Is the server running on that host and accepting TCP/IP connections?
 
 2025-08-03 01:14:36,174 - __main__ - INFO - Database connected: PostgreSQL 15.13 (Debian 15.13-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-08-03 01:38:30,577 - __main__ - INFO - Inserted Reddit data with ID: 1
+2025-08-03 01:38:30,601 - __main__ - INFO - Inserted 1 ticker mentions for post 1
+2025-08-03 01:38:30,602 - __main__ - INFO - Database operations test successful!
+2025-08-03 01:38:30,614 - __main__ - INFO - Cleaned up test data for post ID: 1
