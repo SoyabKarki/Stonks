@@ -16,3 +16,7 @@
 2025-08-02 02:07:30,901 - extract.reddit_data - INFO - Getting posts from investing with limit 2
 2025-08-02 02:07:34,245 - extract.ticker_symbols - INFO - Found 5 ticker symbols in text
 2025-08-02 02:07:34,565 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 01:12:16,432 - __main__ - ERROR - Database connection failed: connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+2025-08-03 01:14:36,174 - __main__ - INFO - Database connected: PostgreSQL 15.13 (Debian 15.13-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
