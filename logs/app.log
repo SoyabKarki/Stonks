@@ -24,3 +24,252 @@
 2025-08-03 01:38:30,601 - __main__ - INFO - Inserted 1 ticker mentions for post 1
 2025-08-03 01:38:30,602 - __main__ - INFO - Database operations test successful!
 2025-08-03 01:38:30,614 - __main__ - INFO - Cleaned up test data for post ID: 1
+2025-08-03 03:00:52,378 - transform.sentiment - INFO - Using device: cuda:0
+2025-08-03 03:00:52,328 - __main__ - INFO - Starting the Reddit data pipeline
+2025-08-03 03:00:52,328 - __main__ - INFO - Step 1: Extracting Reddit data...
+2025-08-03 03:00:52,328 - __main__ - INFO - Extracting posts from r/investing
+2025-08-03 03:00:52,329 - extract.reddit_data - INFO - Getting posts from investing with limit 10
+2025-08-03 03:00:53,277 - __main__ - ERROR - Error extracting posts from r/investing: object of type 'ListingGenerator' has no len()
+2025-08-03 03:00:53,277 - __main__ - INFO - Extracting posts from r/wallstreetbets
+2025-08-03 03:00:53,277 - extract.reddit_data - INFO - Getting posts from wallstreetbets with limit 10
+2025-08-03 03:00:53,500 - __main__ - ERROR - Error extracting posts from r/wallstreetbets: object of type 'ListingGenerator' has no len()
+2025-08-03 03:00:53,501 - __main__ - INFO - Extracting posts from r/stocks
+2025-08-03 03:00:53,501 - extract.reddit_data - INFO - Getting posts from stocks with limit 10
+2025-08-03 03:00:53,763 - __main__ - ERROR - Error extracting posts from r/stocks: object of type 'ListingGenerator' has no len()
+2025-08-03 03:00:53,763 - __main__ - INFO - Extracted 30 posts from all subreddits
+2025-08-03 03:00:53,764 - __main__ - INFO - Step 2: Transforming data...
+2025-08-03 03:00:58,967 - extract.ticker_symbols - INFO - Found 5 ticker symbols in text
+2025-08-03 03:00:53,529 - __main__ - INFO - Transformed post: Robinhood and other brokers literally blocking pur... with 5 tickers
+2025-08-03 03:00:53,536 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:53,563 - __main__ - INFO - Transformed post: United Airlines stock down over 5% premarket tradi... with 1 tickers
+2025-08-03 03:00:53,570 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-03 03:00:53,584 - __main__ - INFO - Transformed post: Today I made $1m gains by selling my entire Nvidia... with 3 tickers
+2025-08-03 03:00:53,591 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:53,597 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:53,605 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:53,612 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:00:53,646 - __main__ - INFO - Transformed post: Jim Cramer Gave an Interview in 2006 on how the He... with 2 tickers
+2025-08-03 03:00:53,654 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:53,671 - __main__ - INFO - Transformed post: Uber Fined $649 Million for Saying Drivers Aren’t ... with 1 tickers
+2025-08-03 03:00:53,678 - extract.ticker_symbols - INFO - Found 6 ticker symbols in text
+2025-08-03 03:00:53,758 - __main__ - INFO - Transformed post: Emotional involvement has never been this high, pl... with 6 tickers
+2025-08-03 03:00:53,765 - extract.ticker_symbols - INFO - Found 4 ticker symbols in text
+2025-08-03 03:00:53,788 - __main__ - INFO - Transformed post: Long Island Ice Tea Corp, a beverage company, was ... with 4 tickers
+2025-08-03 03:00:53,794 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:53,799 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:53,804 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:53,821 - __main__ - INFO - Transformed post: GME YOLO update — Jan 28 2021... with 1 tickers
+2025-08-03 03:00:53,829 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:53,842 - __main__ - INFO - Transformed post: GME YOLO month-end update — Jan 2021... with 1 tickers
+2025-08-03 03:00:53,849 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:53,854 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:00:53,889 - __main__ - INFO - Transformed post: CLASS ACTION AGAINST ROBINHOOD. Allowing people to... with 2 tickers
+2025-08-03 03:00:53,895 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:53,906 - __main__ - INFO - Transformed post: GME YOLO update — Feb 19 2021... with 1 tickers
+2025-08-03 03:00:53,912 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:53,938 - __main__ - INFO - Transformed post: GME YOLO update — Jan 27 2021 --------------------... with 1 tickers
+2025-08-03 03:00:53,944 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:53,954 - __main__ - INFO - Transformed post: GME YOLO update — Feb 1 2021... with 1 tickers
+2025-08-03 03:00:53,960 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-03 03:00:53,975 - __main__ - INFO - Transformed post: IT'S POWER TO THE TRADERS NOW... with 3 tickers
+2025-08-03 03:00:53,982 - extract.ticker_symbols - INFO - Found 4 ticker symbols in text
+2025-08-03 03:00:54,000 - __main__ - INFO - Transformed post: It's fucking awful seeing the "Silver" misinformat... with 4 tickers
+2025-08-03 03:00:54,007 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:00:54,021 - __main__ - INFO - Transformed post: Companies try to prevent people from trading GME a... with 2 tickers
+2025-08-03 03:00:54,028 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:54,041 - __main__ - INFO - Transformed post: PRESIDENT TRUMP JUST ASKED THE SUPREME COURT FOR T... with 1 tickers
+2025-08-03 03:00:54,049 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:00:54,065 - __main__ - INFO - Transformed post: Suicide hotline... with 2 tickers
+2025-08-03 03:00:54,072 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:54,078 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-03 03:00:54,102 - __main__ - INFO - Transformed post: America is going to get rocked. China, Japan, Sout... with 3 tickers
+2025-08-03 03:00:54,109 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:54,116 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:00:54,129 - __main__ - INFO - Transformed post: Today is a dark day for traders... with 2 tickers
+2025-08-03 03:00:54,138 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:00:54,145 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:00:54,158 - __main__ - INFO - Transformed post: Trump Slams Amazon's Tariff Labeling as ‘Hostile, ... with 1 tickers
+2025-08-03 03:00:54,158 - __main__ - INFO - Transformed 21 posts
+2025-08-03 03:00:54,158 - __main__ - INFO - Step 3: Loading to database...
+2025-08-03 03:00:54,182 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,182 - __main__ - ERROR - Failed to insert post Robinhood and other brokers literally blocking pur...
+2025-08-03 03:00:54,191 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,191 - __main__ - ERROR - Failed to insert post United Airlines stock down over 5% premarket tradi...
+2025-08-03 03:00:54,197 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,197 - __main__ - ERROR - Failed to insert post Today I made $1m gains by selling my entire Nvidia...
+2025-08-03 03:00:54,204 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,204 - __main__ - ERROR - Failed to insert post Jim Cramer Gave an Interview in 2006 on how the He...
+2025-08-03 03:00:54,212 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,213 - __main__ - ERROR - Failed to insert post Uber Fined $649 Million for Saying Drivers Aren’t ...
+2025-08-03 03:00:54,220 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,220 - __main__ - ERROR - Failed to insert post Emotional involvement has never been this high, pl...
+2025-08-03 03:00:54,227 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,227 - __main__ - ERROR - Failed to insert post Long Island Ice Tea Corp, a beverage company, was ...
+2025-08-03 03:00:54,234 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,235 - __main__ - ERROR - Failed to insert post GME YOLO update — Jan 28 2021...
+2025-08-03 03:00:54,241 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,242 - __main__ - ERROR - Failed to insert post GME YOLO month-end update — Jan 2021...
+2025-08-03 03:00:54,248 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,248 - __main__ - ERROR - Failed to insert post CLASS ACTION AGAINST ROBINHOOD. Allowing people to...
+2025-08-03 03:00:54,255 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,255 - __main__ - ERROR - Failed to insert post GME YOLO update — Feb 19 2021...
+2025-08-03 03:00:54,261 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,262 - __main__ - ERROR - Failed to insert post GME YOLO update — Jan 27 2021 --------------------...
+2025-08-03 03:00:54,268 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,268 - __main__ - ERROR - Failed to insert post GME YOLO update — Feb 1 2021...
+2025-08-03 03:00:54,274 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,275 - __main__ - ERROR - Failed to insert post IT'S POWER TO THE TRADERS NOW...
+2025-08-03 03:00:54,281 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,281 - __main__ - ERROR - Failed to insert post It's fucking awful seeing the "Silver" misinformat...
+2025-08-03 03:00:54,287 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,288 - __main__ - ERROR - Failed to insert post Companies try to prevent people from trading GME a...
+2025-08-03 03:00:54,294 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,294 - __main__ - ERROR - Failed to insert post PRESIDENT TRUMP JUST ASKED THE SUPREME COURT FOR T...
+2025-08-03 03:00:54,302 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,303 - __main__ - ERROR - Failed to insert post Suicide hotline...
+2025-08-03 03:00:54,310 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,310 - __main__ - ERROR - Failed to insert post America is going to get rocked. China, Japan, Sout...
+2025-08-03 03:00:54,318 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,318 - __main__ - ERROR - Failed to insert post Today is a dark day for traders...
+2025-08-03 03:00:54,325 - load.db_operations - ERROR - Error inserting Reddit data: can't adapt type 'Subreddit'
+2025-08-03 03:00:54,325 - __main__ - ERROR - Failed to insert post Trump Slams Amazon's Tariff Labeling as ‘Hostile, ...
+2025-08-03 03:00:54,325 - __main__ - INFO - Pipeline completed successfully!
+2025-08-03 03:00:54,325 - __main__ - INFO - Posts processed: 30
+2025-08-03 03:00:54,326 - __main__ - INFO - Posts with tickers: 21
+2025-08-03 03:00:54,326 - __main__ - INFO - Posts loaded: 0
+2025-08-03 03:08:42,874 - transform.sentiment - INFO - Using device: cuda:0
+2025-08-03 03:08:46,990 - __main__ - INFO - Starting the Reddit data pipeline
+2025-08-03 03:08:46,990 - __main__ - INFO - Step 1: Extracting Reddit data...
+2025-08-03 03:08:46,991 - __main__ - INFO - Extracting posts from r/investing
+2025-08-03 03:08:46,991 - extract.reddit_data - INFO - Getting posts from investing with limit 10
+2025-08-03 03:08:53,410 - __main__ - INFO - Extracted 10 posts from r/investing
+2025-08-03 03:08:53,410 - __main__ - INFO - Extracting posts from r/wallstreetbets
+2025-08-03 03:08:53,410 - extract.reddit_data - INFO - Getting posts from wallstreetbets with limit 10
+2025-08-03 03:08:55,170 - __main__ - INFO - Extracted 10 posts from r/wallstreetbets
+2025-08-03 03:08:55,170 - __main__ - INFO - Extracting posts from r/stocks
+2025-08-03 03:08:55,170 - extract.reddit_data - INFO - Getting posts from stocks with limit 10
+2025-08-03 03:08:56,594 - __main__ - INFO - Extracted 10 posts from r/stocks
+2025-08-03 03:08:56,595 - __main__ - INFO - Extracted 30 posts from all subreddits
+2025-08-03 03:08:56,595 - __main__ - INFO - Step 2: Transforming data...
+2025-08-03 03:08:56,604 - extract.ticker_symbols - INFO - Found 5 ticker symbols in text
+2025-08-03 03:08:56,924 - __main__ - INFO - Transformed post: Robinhood and other brokers literally blocking pur... with 5 tickers
+2025-08-03 03:08:56,930 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,069 - __main__ - INFO - Transformed post: United Airlines stock down over 5% premarket tradi... with 1 tickers
+2025-08-03 03:08:57,076 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-03 03:08:57,212 - __main__ - INFO - Transformed post: Today I made $1m gains by selling my entire Nvidia... with 3 tickers
+2025-08-03 03:08:57,221 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,230 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,238 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,245 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:08:57,272 - __main__ - INFO - Transformed post: Jim Cramer Gave an Interview in 2006 on how the He... with 2 tickers
+2025-08-03 03:08:57,279 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,295 - __main__ - INFO - Transformed post: Uber Fined $649 Million for Saying Drivers Aren’t ... with 1 tickers
+2025-08-03 03:08:57,304 - extract.ticker_symbols - INFO - Found 6 ticker symbols in text
+2025-08-03 03:08:57,382 - __main__ - INFO - Transformed post: Emotional involvement has never been this high, pl... with 6 tickers
+2025-08-03 03:08:57,388 - extract.ticker_symbols - INFO - Found 4 ticker symbols in text
+2025-08-03 03:08:57,408 - __main__ - INFO - Transformed post: Long Island Ice Tea Corp, a beverage company, was ... with 4 tickers
+2025-08-03 03:08:57,414 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,420 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,426 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,440 - __main__ - INFO - Transformed post: GME YOLO update — Jan 28 2021... with 1 tickers
+2025-08-03 03:08:57,447 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,460 - __main__ - INFO - Transformed post: GME YOLO month-end update — Jan 2021... with 1 tickers
+2025-08-03 03:08:57,467 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,474 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:08:57,496 - __main__ - INFO - Transformed post: CLASS ACTION AGAINST ROBINHOOD. Allowing people to... with 2 tickers
+2025-08-03 03:08:57,502 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,516 - __main__ - INFO - Transformed post: GME YOLO update — Feb 19 2021... with 1 tickers
+2025-08-03 03:08:57,522 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,544 - __main__ - INFO - Transformed post: GME YOLO update — Jan 27 2021 --------------------... with 1 tickers
+2025-08-03 03:08:57,552 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,567 - __main__ - INFO - Transformed post: GME YOLO update — Feb 1 2021... with 1 tickers
+2025-08-03 03:08:57,574 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-03 03:08:57,589 - __main__ - INFO - Transformed post: IT'S POWER TO THE TRADERS NOW... with 3 tickers
+2025-08-03 03:08:57,596 - extract.ticker_symbols - INFO - Found 4 ticker symbols in text
+2025-08-03 03:08:57,615 - __main__ - INFO - Transformed post: It's fucking awful seeing the "Silver" misinformat... with 4 tickers
+2025-08-03 03:08:57,621 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:08:57,635 - __main__ - INFO - Transformed post: Companies try to prevent people from trading GME a... with 2 tickers
+2025-08-03 03:08:57,641 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,653 - __main__ - INFO - Transformed post: PRESIDENT TRUMP JUST ASKED THE SUPREME COURT FOR T... with 1 tickers
+2025-08-03 03:08:57,660 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:08:57,681 - __main__ - INFO - Transformed post: Suicide hotline... with 2 tickers
+2025-08-03 03:08:57,690 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,699 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-03 03:08:57,724 - __main__ - INFO - Transformed post: America is going to get rocked. China, Japan, Sout... with 3 tickers
+2025-08-03 03:08:57,733 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,740 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-03 03:08:57,760 - __main__ - INFO - Transformed post: Today is a dark day for traders... with 2 tickers
+2025-08-03 03:08:57,766 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-03 03:08:57,774 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-03 03:08:57,795 - __main__ - INFO - Transformed post: Trump Slams Amazon's Tariff Labeling as ‘Hostile, ... with 1 tickers
+2025-08-03 03:08:57,795 - __main__ - INFO - Transformed 21 posts
+2025-08-03 03:08:57,795 - __main__ - INFO - Step 3: Loading to database...
+2025-08-03 03:08:57,831 - load.db_operations - INFO - Inserted Reddit data with ID: 2
+2025-08-03 03:08:57,854 - load.db_operations - INFO - Inserted 5 ticker mentions for post 2
+2025-08-03 03:08:57,854 - __main__ - INFO - Loaded post 2 with 5 ticker mentions
+2025-08-03 03:08:57,865 - load.db_operations - INFO - Inserted Reddit data with ID: 3
+2025-08-03 03:08:57,877 - load.db_operations - INFO - Inserted 1 ticker mentions for post 3
+2025-08-03 03:08:57,878 - __main__ - INFO - Loaded post 3 with 1 ticker mentions
+2025-08-03 03:08:57,891 - load.db_operations - INFO - Inserted Reddit data with ID: 4
+2025-08-03 03:08:57,905 - load.db_operations - INFO - Inserted 3 ticker mentions for post 4
+2025-08-03 03:08:57,905 - __main__ - INFO - Loaded post 4 with 3 ticker mentions
+2025-08-03 03:08:57,916 - load.db_operations - INFO - Inserted Reddit data with ID: 5
+2025-08-03 03:08:57,929 - load.db_operations - INFO - Inserted 2 ticker mentions for post 5
+2025-08-03 03:08:57,929 - __main__ - INFO - Loaded post 5 with 2 ticker mentions
+2025-08-03 03:08:57,941 - load.db_operations - INFO - Inserted Reddit data with ID: 6
+2025-08-03 03:08:57,953 - load.db_operations - INFO - Inserted 1 ticker mentions for post 6
+2025-08-03 03:08:57,953 - __main__ - INFO - Loaded post 6 with 1 ticker mentions
+2025-08-03 03:08:57,965 - load.db_operations - INFO - Inserted Reddit data with ID: 7
+2025-08-03 03:08:57,985 - load.db_operations - INFO - Inserted 6 ticker mentions for post 7
+2025-08-03 03:08:57,985 - __main__ - INFO - Loaded post 7 with 6 ticker mentions
+2025-08-03 03:08:58,001 - load.db_operations - INFO - Inserted Reddit data with ID: 8
+2025-08-03 03:08:58,016 - load.db_operations - INFO - Inserted 4 ticker mentions for post 8
+2025-08-03 03:08:58,016 - __main__ - INFO - Loaded post 8 with 4 ticker mentions
+2025-08-03 03:08:58,027 - load.db_operations - INFO - Inserted Reddit data with ID: 9
+2025-08-03 03:08:58,038 - load.db_operations - INFO - Inserted 1 ticker mentions for post 9
+2025-08-03 03:08:58,039 - __main__ - INFO - Loaded post 9 with 1 ticker mentions
+2025-08-03 03:08:58,051 - load.db_operations - INFO - Inserted Reddit data with ID: 10
+2025-08-03 03:08:58,063 - load.db_operations - INFO - Inserted 1 ticker mentions for post 10
+2025-08-03 03:08:58,064 - __main__ - INFO - Loaded post 10 with 1 ticker mentions
+2025-08-03 03:08:58,075 - load.db_operations - INFO - Inserted Reddit data with ID: 11
+2025-08-03 03:08:58,086 - load.db_operations - INFO - Inserted 2 ticker mentions for post 11
+2025-08-03 03:08:58,087 - __main__ - INFO - Loaded post 11 with 2 ticker mentions
+2025-08-03 03:08:58,098 - load.db_operations - INFO - Inserted Reddit data with ID: 12
+2025-08-03 03:08:58,110 - load.db_operations - INFO - Inserted 1 ticker mentions for post 12
+2025-08-03 03:08:58,110 - __main__ - INFO - Loaded post 12 with 1 ticker mentions
+2025-08-03 03:08:58,121 - load.db_operations - INFO - Inserted Reddit data with ID: 13
+2025-08-03 03:08:58,133 - load.db_operations - INFO - Inserted 1 ticker mentions for post 13
+2025-08-03 03:08:58,134 - __main__ - INFO - Loaded post 13 with 1 ticker mentions
+2025-08-03 03:08:58,144 - load.db_operations - INFO - Inserted Reddit data with ID: 14
+2025-08-03 03:08:58,156 - load.db_operations - INFO - Inserted 1 ticker mentions for post 14
+2025-08-03 03:08:58,157 - __main__ - INFO - Loaded post 14 with 1 ticker mentions
+2025-08-03 03:08:58,166 - load.db_operations - INFO - Inserted Reddit data with ID: 15
+2025-08-03 03:08:58,179 - load.db_operations - INFO - Inserted 3 ticker mentions for post 15
+2025-08-03 03:08:58,179 - __main__ - INFO - Loaded post 15 with 3 ticker mentions
+2025-08-03 03:08:58,190 - load.db_operations - INFO - Inserted Reddit data with ID: 16
+2025-08-03 03:08:58,203 - load.db_operations - INFO - Inserted 4 ticker mentions for post 16
+2025-08-03 03:08:58,204 - __main__ - INFO - Loaded post 16 with 4 ticker mentions
+2025-08-03 03:08:58,216 - load.db_operations - INFO - Inserted Reddit data with ID: 17
+2025-08-03 03:08:58,227 - load.db_operations - INFO - Inserted 2 ticker mentions for post 17
+2025-08-03 03:08:58,227 - __main__ - INFO - Loaded post 17 with 2 ticker mentions
+2025-08-03 03:08:58,238 - load.db_operations - INFO - Inserted Reddit data with ID: 18
+2025-08-03 03:08:58,248 - load.db_operations - INFO - Inserted 1 ticker mentions for post 18
+2025-08-03 03:08:58,249 - __main__ - INFO - Loaded post 18 with 1 ticker mentions
+2025-08-03 03:08:58,259 - load.db_operations - INFO - Inserted Reddit data with ID: 19
+2025-08-03 03:08:58,270 - load.db_operations - INFO - Inserted 2 ticker mentions for post 19
+2025-08-03 03:08:58,271 - __main__ - INFO - Loaded post 19 with 2 ticker mentions
+2025-08-03 03:08:58,280 - load.db_operations - INFO - Inserted Reddit data with ID: 20
+2025-08-03 03:08:58,291 - load.db_operations - INFO - Inserted 3 ticker mentions for post 20
+2025-08-03 03:08:58,291 - __main__ - INFO - Loaded post 20 with 3 ticker mentions
+2025-08-03 03:08:58,302 - load.db_operations - INFO - Inserted Reddit data with ID: 21
+2025-08-03 03:08:58,312 - load.db_operations - INFO - Inserted 2 ticker mentions for post 21
+2025-08-03 03:08:58,312 - __main__ - INFO - Loaded post 21 with 2 ticker mentions
+2025-08-03 03:08:58,320 - load.db_operations - INFO - Inserted Reddit data with ID: 22
+2025-08-03 03:08:58,331 - load.db_operations - INFO - Inserted 1 ticker mentions for post 22
+2025-08-03 03:08:58,331 - __main__ - INFO - Loaded post 22 with 1 ticker mentions
+2025-08-03 03:08:58,383 - load.db_operations - INFO - Refreshed materialized view
+2025-08-03 03:08:58,383 - __main__ - INFO - Refreshed materialized view
+2025-08-03 03:08:58,383 - __main__ - INFO - Pipeline completed successfully!
+2025-08-03 03:08:58,383 - __main__ - INFO - Posts processed: 30
+2025-08-03 03:08:58,383 - __main__ - INFO - Posts with tickers: 21
+2025-08-03 03:08:58,383 - __main__ - INFO - Posts loaded: 21
