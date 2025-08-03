@@ -51,9 +51,9 @@ def get_news_for_ticker(self, ticker: str, page: int = 1, page_size: int = 5, la
             articles = data.get('articles', [])
             logger.info(f"Found {len(articles)} news articles for {ticker}")
 
-            # Process and format articles
+            # Process and format only the first 5 articles
             processed_articles = []
-            for article in articles:
+            for article in articles[:5]:
                 processed_article = {
                     'ticker': ticker,
                     'title': article.get('title', ''),
