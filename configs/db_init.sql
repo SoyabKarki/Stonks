@@ -22,6 +22,31 @@ CREATE TABLE IF NOT EXISTS ticker_mentions (
     UNIQUE(post_id, ticker)
 );
 
+CREATE TABLE IF NOT EXISTS news_articles (
+    id SERIAL PRIMARY KEY,
+    ticker VARCHAR(10) NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    url TEXT,
+    source VARCHAR(100),
+    published_at TIMESTAMP,
+    content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS stock_data (
+    id SERIAL PRIMARY KEY,
+    ticker VARCHAR(10) NOT NULL,
+    date DATE NOT NULL,
+    open_price DECIMAL(10,2),
+    high_price DECIMAL(10,2),
+    low_price DECIMAL(10,2),
+    close_price DECIMAL(10,2),
+    volume BIGINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(ticker, date)
+);
+
 -- Indexes
 CREATE INDEX idx_ticker_mentions_ticker
   ON ticker_mentions(ticker);

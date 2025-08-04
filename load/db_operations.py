@@ -88,6 +88,80 @@ class DatabaseOperations:
             logger.error(f"Error inserting ticker mentions: {str(e)}")
             return False
 
+    def insert_news_articles(self, ticker: str, articles: List[Dict[str, Any]]) -> bool:
+        """Insert news articles for a ticker"""
+        try:
+            conn = self.db.get_connection()
+            cursor = conn.cursor()
+            
+            for article in articles:
+                query = """
+                    INSERT INTO news_articles (ticker, title, description, url, source, published_at, content)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT DO NOTHING
+                """
+                
+                cursor.execute(query, (
+                    ticker,
+                    article['title'],
+                    article['description'],
+                    article['url'],
+                    article['source'],
+                    article['published_at'],
+                    article['content']
+                ))
+            
+            conn.commit()
+            cursor.close()
+            conn.close()
+            
+            logger.info(f"Inserted {len(articles)} news articles for {ticker}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error inserting news articles: {str(e)}")
+            return False
+
+    def insert_stock_data(self, ticker: str, stock_data: Dict[str, Any]) -> bool:
+        """Insert stock data for a ticker"""
+        try:
+            conn = self.db.get_connection()
+            cursor = conn.cursor()
+            
+            for date, data in stock_data['daily_data'].items():
+                query = """
+                    INSERT INTO stock_data (ticker, date, open_price, high_price, low_price, close_price, volume)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (ticker, date) DO UPDATE SET
+                        open_price = EXCLUDED.open_price,
+                        high_price = EXCLUDED.high_price,
+                        low_price = EXCLUDED.low_price,
+                        close_price = EXCLUDED.close_price,
+                        volume = EXCLUDED.volume
+                """
+                
+                cursor.execute(query, (
+                    ticker,
+                    date,
+                    data['open'],
+                    data['high'],
+                    data['low'],
+                    data['close'],
+                    data['volume']
+                ))
+            
+            conn.commit()
+            cursor.close()
+            conn.close()
+            
+            logger.info(f"Inserted stock data for {ticker}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error inserting stock data: {str(e)}")
+            return False
+
+
     def refresh_materialized_view(self):
         """
         Refresh the materialized view
@@ -131,9 +205,9 @@ class DatabaseOperations:
             logger.error(f"Error getting dashboard data: {str(e)}")
             return []
 
-    def _test_operations(self) -> int:
+    def _test_reddit_and_ticker_operations(self) -> int:
         """
-        Test database operations with sample data
+        Test database operations for reddit data and ticker mentions with sample data
         """
 
         try:
@@ -171,6 +245,137 @@ class DatabaseOperations:
             logger.error(f"Database operations test failed: {str(e)}")
             return None
 
+    def _test_stock_data_operations(self) -> bool:
+        """
+        Test stock data operations with sample data
+        """
+        try:
+            # Test inserting sample stock data
+            sample_stock_data = {
+                'daily_data': {
+                    '2024-01-15': {
+                        'open': 150.00,
+                        'high': 155.50,
+                        'low': 149.75,
+                        'close': 152.25,
+                        'volume': 1000000
+                    },
+                    '2024-01-16': {
+                        'open': 152.25,
+                        'high': 158.00,
+                        'low': 151.50,
+                        'close': 156.75,
+                        'volume': 1200000
+                    }
+                }
+            }
+            
+            success = self.insert_stock_data('AAPL', sample_stock_data)
+            
+            if success:
+                logger.info("Stock data operations test successful!")
+                return True
+            
+            return False
+            
+        except Exception as e:
+            logger.error(f"Stock data operations test failed: {str(e)}")
+            return False
+
+    def _test_news_articles_operations(self) -> bool:
+        """
+        Test news articles operations with sample data
+        """
+        try:
+            # Test inserting sample news articles
+            sample_articles = [
+                {
+                    'title': 'Apple Reports Strong Q4 Earnings',
+                    'description': 'Apple Inc. reported better-than-expected quarterly earnings...',
+                    'url': 'https://example.com/apple-earnings',
+                    'source': 'Financial Times',
+                    'published_at': datetime.now(),
+                    'content': 'Apple Inc. reported better-than-expected quarterly earnings...'
+                },
+                {
+                    'title': 'Apple Stock Hits New High',
+                    'description': 'Shares of Apple reached a new all-time high...',
+                    'url': 'https://example.com/apple-stock-high',
+                    'source': 'Reuters',
+                    'published_at': datetime.now(),
+                    'content': 'Shares of Apple reached a new all-time high...'
+                }
+            ]
+            
+            success = self.insert_news_articles('AAPL', sample_articles)
+            
+            if success:
+                logger.info("News articles operations test successful!")
+                return True
+            
+            return False
+            
+        except Exception as e:
+            logger.error(f"News articles operations test failed: {str(e)}")
+            return False
+
+    def _test_all_operations(self):
+        """
+        Test all database operations with sample data
+        """
+        logger.info("Starting comprehensive database operations test...")
+        
+        # Test Reddit and ticker mentions operations
+        post_id = self._test_reddit_and_ticker_operations()
+        
+        # Test stock data operations
+        stock_success = self._test_stock_data_operations()
+        
+        # Test news articles operations
+        news_success = self._test_news_articles_operations()
+        
+        # Clean up all test data
+        cleanup_results = []
+        
+        if post_id:
+            cleanup_results.append(self._cleanup_test_data(post_id))
+        
+        if stock_success:
+            cleanup_results.append(self._cleanup_stock_test_data('AAPL'))
+        
+        if news_success:
+            cleanup_results.append(self._cleanup_news_test_data('AAPL'))
+        
+        # Report results
+        if post_id and stock_success and news_success:
+            logger.info("All database operations tests passed!")
+            print("All database operations working!")
+            
+            if all(cleanup_results):
+                print("All test data cleaned up successfully!")
+            else:
+                print("Some test data cleanup failed!")
+        else:
+            logger.error("Some database operations tests failed!")
+            print("Some database operations failed!")
+            
+            if post_id:
+                print("Reddit data operations: PASSED")
+            else:
+                print("Reddit data operations: FAILED")
+                
+            if stock_success:
+                print("Stock data operations: PASSED")
+            else:
+                print("Stock data operations: FAILED")
+                
+            if news_success:
+                print("News articles operations: PASSED")
+            else:
+                print("News articles operations: FAILED")
+
+
+
     def _cleanup_test_data(self, post_id: int):
         """
         Clean up test data by deleting the post and its ticker mentions
@@ -196,20 +401,54 @@ class DatabaseOperations:
             logger.error(f"Error cleaning up test data: {str(e)}")
             return False
 
+    def _cleanup_stock_test_data(self, ticker: str):
+        """
+        Clean up test stock data by deleting the stock data entries
+        """
+        try:
+            conn = self.db.get_connection()
+            cursor = conn.cursor()
+            
+            # Delete stock data for the ticker
+            cursor.execute("DELETE FROM stock_data WHERE ticker = %s", (ticker,))
+            
+            conn.commit()
+            cursor.close()
+            conn.close()
+            
+            logger.info(f"Cleaned up test stock data for ticker: {ticker}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error cleaning up test stock data: {str(e)}")
+            return False
+
+    def _cleanup_news_test_data(self, ticker: str):
+        """
+        Clean up test news data by deleting the news articles entries
+        """
+        try:
+            conn = self.db.get_connection()
+            cursor = conn.cursor()
+            
+            # Delete news articles for the ticker
+            cursor.execute("DELETE FROM news_articles WHERE ticker = %s", (ticker,))
+            
+            conn.commit()
+            cursor.close()
+            conn.close()
+            
+            logger.info(f"Cleaned up test news data for ticker: {ticker}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error cleaning up test news data: {str(e)}")
+            return False
+
 
 db_ops = DatabaseOperations()
 
 
 if __name__ == "__main__":
-    post_id = db_ops._test_operations()
-    
-    if post_id:
-        print("Database operations working!")
-        
-        # Clean up the test data
-        if db_ops._cleanup_test_data(post_id):
-            print("Test data cleaned up successfully!")
-        else:
-            print("Failed to clean up test data!")
-    else:
-        print("Database operations failed!")
+    # Test all operations
+    db_ops._test_all_operations()

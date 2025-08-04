@@ -86,6 +86,7 @@ def get_ticker_sentiment(text: str) -> Dict[str, Dict]:
         final[ticker] = {
             "label": top,
             "score": avg[top],
+            "context": " ".join(sentences)
         }
 
     return final

@@ -3,6 +3,7 @@ import logging
 from typing import List, Dict, Any
 import os
 from dotenv import load_dotenv
+from datetime import datetime
 
 from configs.logging_config import setup_logging
 
@@ -18,7 +19,7 @@ if not api_key:
     raise ValueError("NEWS_API_KEY not found in environment variables")
     logger.error("NEWS_API_KEY not found in environment variables")
 
-def get_news_for_ticker(self, ticker: str, page: int = 1, page_size: int = 5, language: str = "en") -> List[Dict[str, Any]]:
+def get_news_for_ticker(ticker: str, page: int = 1, page_size: int = 5, language: str = "en") -> List[Dict[str, Any]]:
     """
     Get news articles for a specific ticker
     
@@ -28,7 +29,7 @@ def get_news_for_ticker(self, ticker: str, page: int = 1, page_size: int = 5, la
         days_back: Number of days to look back for news
         
     Returns:
-        List of news articles with metadata
+        List of news articles
     """
     try:
         query = f"{ticker} stock"
@@ -54,13 +55,19 @@ def get_news_for_ticker(self, ticker: str, page: int = 1, page_size: int = 5, la
             # Process and format only the first 5 articles
             processed_articles = []
             for article in articles[:5]:
+                published_at_str = article.get('publishedAt', '')
+                try:
+                    published_at = datetime.fromisoformat(published_at_str.replace('Z', '+00:00'))
+                except:
+                    published_at = datetime.now()
+
                 processed_article = {
                     'ticker': ticker,
                     'title': article.get('title', ''),
                     'description': article.get('description', ''),
                     'url': article.get('url', ''),
                     'source': article.get('source', {}).get('name', ''),
-                    'published_at': article.get('publishedAt', ''),
+                    'published_at': published_at,
                     'content': article.get('content', ''),
                 }
                 processed_articles.append(processed_article)

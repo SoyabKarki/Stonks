@@ -15,12 +15,12 @@ load_dotenv()
 api_key = os.getenv("ALPHA_VANTAGE_API_KEY")
 base_url = "https://www.alphavantage.co/query"
 
-def get_daily_stock_data(self, symbol: str, output_size: str = "compact") -> Optional[Dict[str, Any]]:
+def get_daily_stock_data(ticker: str, output_size: str = "compact") -> Optional[Dict[str, Any]]:
     """
-    Get daily stock data for a symbol
+    Get daily stock data for a ticker
     
     Args:
-        symbol: Stock symbol (e.g., 'AAPL', 'IBM')
+        ticker: Stock ticker (e.g., 'AAPL', 'IBM')
         output_size: 'compact' (last 100 days) or 'full' (last 20 years)
         
     Returns:
@@ -30,12 +30,12 @@ def get_daily_stock_data(self, symbol: str, output_size: str = "compact") -> Opt
     try:
         params = {
             "function": "TIME_SERIES_DAILY",
-            "symbol": symbol,
+            "symbol": ticker,
             "outputsize": output_size,
             "apikey": api_key,
         }
 
-        logger.info(f"Fetching daily stock data for {symbol}")
+        logger.info(f"Fetching daily stock data for {ticker}")
         response = requests.get(base_url, params=params)
         response.raise_for_status()
 
@@ -43,7 +43,7 @@ def get_daily_stock_data(self, symbol: str, output_size: str = "compact") -> Opt
 
         # Check for API errors
         if 'Error Message' in data:
-            logger.error(f"Alpha Vantage API error for {symbol}: {data['Error Message']}")
+            logger.error(f"Alpha Vantage API error for {ticker}: {data['Error Message']}")
             return None
         
         if 'Note' in data:
@@ -55,15 +55,15 @@ def get_daily_stock_data(self, symbol: str, output_size: str = "compact") -> Opt
         time_series = data.get('Time Series (Daily)', {})
 
         if not time_series:
-            logger.warning(f"No time series data found for {symbol}")
+            logger.warning(f"No time series data found for {ticker}")
             return None
 
         # Process data
         processed_data = {
-            'symbol': symbol,
+            'ticker': ticker,
             'meta_data': {
                 'information': meta_data.get('1. Information', ''),
-                'symbol': meta_data.get('2. Symbol', ''),
+                'ticker': meta_data.get('2. Symbol', ''),
                 'last_refreshed': meta_data.get('3. Last Refreshed', ''),
                 'output_size': meta_data.get('4. Output Size', ''),
                 'time_zone': meta_data.get('5. Time Zone', '')
@@ -80,15 +80,16 @@ def get_daily_stock_data(self, symbol: str, output_size: str = "compact") -> Opt
                 'volume': int(values.get('5. volume', 0))
             }
         
-        logger.info(f"Successfully fetched {len(processed_data['daily_data'])} days of data for {symbol}")
+        logger.info(f"Successfully fetched {len(processed_data['daily_data'])} days of data for {ticker}")
         return processed_data
 
     except Exception as e:
-        logger.error(f"Error fetching stock data for {symbol}: {str(e)}")
+        logger.error(f"Error fetching stock data for {ticker}: {str(e)}")
         return None
 
 if __name__ == "__main__":
-    symbol = "AAPL"
+    # Testing
+    ticker = "AAPL"
     output_size = "full"
-    data = get_daily_stock_data(symbol, output_size)
+    data = get_daily_stock_data(ticker, output_size)
     print(data)

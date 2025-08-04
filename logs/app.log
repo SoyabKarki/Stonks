@@ -279,3 +279,42 @@
 2025-08-03 16:57:42,296 - __main__ - INFO - Found 100 news articles for 1
 2025-08-04 01:49:34,789 - __main__ - INFO - Fetching daily stock data for full
 2025-08-04 01:49:35,258 - __main__ - INFO - Successfully fetched 100 days of data for full
+2025-08-04 03:25:25,726 - __main__ - INFO - Fetching daily stock data for AAPL
+2025-08-04 03:25:26,381 - __main__ - INFO - Successfully fetched 6477 days of data for AAPL
+2025-08-04 03:34:07,964 - __main__ - INFO - Starting comprehensive database operations test...
+2025-08-04 03:34:29,776 - __main__ - INFO - Starting comprehensive database operations test...
+2025-08-04 03:34:29,816 - __main__ - INFO - Inserted Reddit data with ID: 23
+2025-08-04 03:34:29,835 - __main__ - INFO - Inserted 1 ticker mentions for post 23
+2025-08-04 03:34:29,836 - __main__ - INFO - Database operations test successful!
+2025-08-04 03:34:29,844 - __main__ - ERROR - Error inserting stock data: relation "stock_data" does not exist
+LINE 2:                     INSERT INTO stock_data (ticker, date, op...
+                                        ^
+
+2025-08-04 03:34:29,853 - __main__ - ERROR - Error inserting news articles: relation "news_articles" does not exist
+LINE 2:                     INSERT INTO news_articles (ticker, title...
+                                        ^
+
+2025-08-04 03:34:29,868 - __main__ - INFO - Cleaned up test data for post ID: 23
+2025-08-04 03:34:29,868 - __main__ - ERROR - Some database operations tests failed!
+2025-08-04 03:38:14,242 - __main__ - INFO - Starting comprehensive database operations test...
+2025-08-04 03:38:14,256 - __main__ - INFO - Inserted Reddit data with ID: 1
+2025-08-04 03:38:14,267 - __main__ - INFO - Inserted 1 ticker mentions for post 1
+2025-08-04 03:38:14,267 - __main__ - INFO - Database operations test successful!
+2025-08-04 03:38:14,277 - __main__ - INFO - Inserted stock data for AAPL
+2025-08-04 03:38:14,278 - __main__ - INFO - Stock data operations test successful!
+2025-08-04 03:38:14,289 - __main__ - INFO - Inserted 2 news articles for AAPL
+2025-08-04 03:38:14,290 - __main__ - INFO - News articles operations test successful!
+2025-08-04 03:38:14,302 - __main__ - INFO - Cleaned up test data for post ID: 1
+2025-08-04 03:38:14,312 - __main__ - INFO - Cleaned up test stock data for ticker: AAPL
+2025-08-04 03:39:46,737 - __main__ - INFO - Starting comprehensive database operations test...
+2025-08-04 03:39:46,749 - __main__ - INFO - Inserted Reddit data with ID: 2
+2025-08-04 03:39:46,762 - __main__ - INFO - Inserted 1 ticker mentions for post 2
+2025-08-04 03:39:46,762 - __main__ - INFO - Database operations test successful!
+2025-08-04 03:39:46,775 - __main__ - INFO - Inserted stock data for AAPL
+2025-08-04 03:39:46,776 - __main__ - INFO - Stock data operations test successful!
+2025-08-04 03:39:46,786 - __main__ - INFO - Inserted 2 news articles for AAPL
+2025-08-04 03:39:46,786 - __main__ - INFO - News articles operations test successful!
+2025-08-04 03:39:46,797 - __main__ - INFO - Cleaned up test data for post ID: 2
+2025-08-04 03:39:46,808 - __main__ - INFO - Cleaned up test stock data for ticker: AAPL
+2025-08-04 03:39:46,818 - __main__ - INFO - Cleaned up test news data for ticker: AAPL
+2025-08-04 03:39:46,818 - __main__ - INFO - All database operations tests passed!
