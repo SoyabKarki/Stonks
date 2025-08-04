@@ -72,6 +72,7 @@ SELECT
     SUM(CASE WHEN sentiment_label = 'neutral' THEN 1 ELSE 0 END) AS neutral_count
 FROM ticker_mentions
 GROUP BY ticker
+LIMIT 10;
 WITH NO DATA;
 
 

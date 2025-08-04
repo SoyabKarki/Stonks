@@ -318,3 +318,399 @@ LINE 2:                     INSERT INTO news_articles (ticker, title...
 2025-08-04 03:39:46,808 - __main__ - INFO - Cleaned up test stock data for ticker: AAPL
 2025-08-04 03:39:46,818 - __main__ - INFO - Cleaned up test news data for ticker: AAPL
 2025-08-04 03:39:46,818 - __main__ - INFO - All database operations tests passed!
+2025-08-04 04:18:17,821 - transform.sentiment - INFO - Using device: cuda:0
+2025-08-04 04:18:20,229 - __main__ - INFO - Starting the Reddit data pipeline
+2025-08-04 04:18:20,229 - __main__ - INFO - 1: Extracting Reddit data...
+2025-08-04 04:18:20,229 - __main__ - INFO - Extracting posts from r/investing
+2025-08-04 04:18:20,229 - extract.reddit_data - INFO - Getting posts from investing with limit 10
+2025-08-04 04:18:20,715 - __main__ - INFO - Extracted 10 posts from r/investing
+2025-08-04 04:18:20,715 - __main__ - INFO - Extracting posts from r/wallstreetbets
+2025-08-04 04:18:20,715 - extract.reddit_data - INFO - Getting posts from wallstreetbets with limit 10
+2025-08-04 04:18:20,904 - __main__ - INFO - Extracted 10 posts from r/wallstreetbets
+2025-08-04 04:18:20,904 - __main__ - INFO - Extracting posts from r/stocks
+2025-08-04 04:18:20,904 - extract.reddit_data - INFO - Getting posts from stocks with limit 10
+2025-08-04 04:18:21,119 - __main__ - INFO - Extracted 10 posts from r/stocks
+2025-08-04 04:18:21,119 - __main__ - INFO - Extracted 30 posts from all subreddits
+2025-08-04 04:18:21,120 - __main__ - INFO - 2: Transforming data...
+2025-08-04 04:18:21,131 - extract.ticker_symbols - INFO - Found 5 ticker symbols in text
+2025-08-04 04:18:21,455 - __main__ - INFO - Transformed post: Robinhood and other brokers literally blocking pur... with 5 tickers
+2025-08-04 04:18:21,461 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:21,490 - __main__ - INFO - Transformed post: United Airlines stock down over 5% premarket tradi... with 1 tickers
+2025-08-04 04:18:21,499 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-04 04:18:21,519 - __main__ - INFO - Transformed post: Today I made $1m gains by selling my entire Nvidia... with 3 tickers
+2025-08-04 04:18:21,526 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:21,535 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:21,543 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:21,552 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-04 04:18:21,582 - __main__ - INFO - Transformed post: Jim Cramer Gave an Interview in 2006 on how the He... with 2 tickers
+2025-08-04 04:18:21,588 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:21,615 - __main__ - INFO - Transformed post: Uber Fined $649 Million for Saying Drivers Aren’t ... with 1 tickers
+2025-08-04 04:18:21,621 - extract.ticker_symbols - INFO - Found 6 ticker symbols in text
+2025-08-04 04:18:21,695 - __main__ - INFO - Transformed post: Emotional involvement has never been this high, pl... with 6 tickers
+2025-08-04 04:18:21,704 - extract.ticker_symbols - INFO - Found 4 ticker symbols in text
+2025-08-04 04:18:21,734 - __main__ - INFO - Transformed post: Long Island Ice Tea Corp, a beverage company, was ... with 4 tickers
+2025-08-04 04:18:21,743 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:21,750 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:21,758 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:21,798 - __main__ - INFO - Transformed post: GME YOLO update — Jan 28 2021... with 1 tickers
+2025-08-04 04:18:21,807 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:21,828 - __main__ - INFO - Transformed post: GME YOLO month-end update — Jan 2021... with 1 tickers
+2025-08-04 04:18:21,839 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:21,851 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-04 04:18:21,881 - __main__ - INFO - Transformed post: CLASS ACTION AGAINST ROBINHOOD. Allowing people to... with 2 tickers
+2025-08-04 04:18:21,889 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:21,902 - __main__ - INFO - Transformed post: GME YOLO update — Feb 19 2021... with 1 tickers
+2025-08-04 04:18:21,908 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:21,918 - __main__ - INFO - Transformed post: GME YOLO update — Jan 27 2021 --------------------... with 1 tickers
+2025-08-04 04:18:21,925 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:21,935 - __main__ - INFO - Transformed post: GME YOLO update — Feb 1 2021... with 1 tickers
+2025-08-04 04:18:21,941 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-04 04:18:21,952 - __main__ - INFO - Transformed post: IT'S POWER TO THE TRADERS NOW... with 3 tickers
+2025-08-04 04:18:21,959 - extract.ticker_symbols - INFO - Found 4 ticker symbols in text
+2025-08-04 04:18:21,978 - __main__ - INFO - Transformed post: It's fucking awful seeing the "Silver" misinformat... with 4 tickers
+2025-08-04 04:18:21,985 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-04 04:18:22,003 - __main__ - INFO - Transformed post: Companies try to prevent people from trading GME a... with 2 tickers
+2025-08-04 04:18:22,013 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:22,031 - __main__ - INFO - Transformed post: PRESIDENT TRUMP JUST ASKED THE SUPREME COURT FOR T... with 1 tickers
+2025-08-04 04:18:22,039 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-04 04:18:22,057 - __main__ - INFO - Transformed post: Suicide hotline... with 2 tickers
+2025-08-04 04:18:22,063 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:22,070 - extract.ticker_symbols - INFO - Found 3 ticker symbols in text
+2025-08-04 04:18:22,104 - __main__ - INFO - Transformed post: America is going to get rocked. China, Japan, Sout... with 3 tickers
+2025-08-04 04:18:22,122 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:22,138 - extract.ticker_symbols - INFO - Found 2 ticker symbols in text
+2025-08-04 04:18:22,171 - __main__ - INFO - Transformed post: Today is a dark day for traders... with 2 tickers
+2025-08-04 04:18:22,180 - extract.ticker_symbols - INFO - Found 0 ticker symbols in text
+2025-08-04 04:18:22,189 - extract.ticker_symbols - INFO - Found 1 ticker symbols in text
+2025-08-04 04:18:22,218 - __main__ - INFO - Transformed post: Trump Slams Amazon's Tariff Labeling as ‘Hostile, ... with 1 tickers
+2025-08-04 04:18:22,219 - __main__ - INFO - Transformed 21 posts with 21 unique tickers
+2025-08-04 04:18:22,219 - __main__ - INFO - 3: Extracting news data...
+2025-08-04 04:18:22,219 - __main__ - INFO - Extracting news for NOK
+2025-08-04 04:18:22,219 - extract.news_data - INFO - Fetching news for NOK
+2025-08-04 04:18:22,664 - extract.news_data - INFO - Found 5 news articles for NOK
+2025-08-04 04:18:22,665 - __main__ - INFO - Extracted 5 news articles for NOK
+2025-08-04 04:18:22,665 - __main__ - INFO - Extracting news for NVDA
+2025-08-04 04:18:22,665 - extract.news_data - INFO - Fetching news for NVDA
+2025-08-04 04:18:22,897 - extract.news_data - INFO - Found 5 news articles for NVDA
+2025-08-04 04:18:22,898 - __main__ - INFO - Extracted 5 news articles for NVDA
+2025-08-04 04:18:22,898 - __main__ - INFO - Extracting news for GTX
+2025-08-04 04:18:22,898 - extract.news_data - INFO - Fetching news for GTX
+2025-08-04 04:18:23,229 - extract.news_data - INFO - Found 5 news articles for GTX
+2025-08-04 04:18:23,229 - __main__ - INFO - Extracted 5 news articles for GTX
+2025-08-04 04:18:23,229 - __main__ - INFO - Extracting news for IT
+2025-08-04 04:18:23,230 - extract.news_data - INFO - Fetching news for IT
+2025-08-04 04:18:23,578 - extract.news_data - INFO - Found 5 news articles for IT
+2025-08-04 04:18:23,580 - __main__ - INFO - Extracted 5 news articles for IT
+2025-08-04 04:18:23,581 - __main__ - INFO - Extracting news for NOW
+2025-08-04 04:18:23,581 - extract.news_data - INFO - Fetching news for NOW
+2025-08-04 04:18:23,918 - extract.news_data - INFO - Found 5 news articles for NOW
+2025-08-04 04:18:23,918 - __main__ - INFO - Extracted 5 news articles for NOW
+2025-08-04 04:18:23,919 - __main__ - INFO - Extracting news for L
+2025-08-04 04:18:23,919 - extract.news_data - INFO - Fetching news for L
+2025-08-04 04:18:24,145 - extract.news_data - INFO - Found 5 news articles for L
+2025-08-04 04:18:24,145 - __main__ - INFO - Extracted 5 news articles for L
+2025-08-04 04:18:24,145 - __main__ - INFO - Extracting news for U
+2025-08-04 04:18:24,146 - extract.news_data - INFO - Fetching news for U
+2025-08-04 04:18:24,462 - extract.news_data - INFO - Found 5 news articles for U
+2025-08-04 04:18:24,463 - __main__ - INFO - Extracted 5 news articles for U
+2025-08-04 04:18:24,463 - __main__ - INFO - Extracting news for RH
+2025-08-04 04:18:24,463 - extract.news_data - INFO - Fetching news for RH
+2025-08-04 04:18:24,685 - extract.news_data - INFO - Found 5 news articles for RH
+2025-08-04 04:18:24,686 - __main__ - INFO - Extracted 5 news articles for RH
+2025-08-04 04:18:24,686 - __main__ - INFO - Extracting news for S
+2025-08-04 04:18:24,686 - extract.news_data - INFO - Fetching news for S
+2025-08-04 04:18:25,030 - extract.news_data - INFO - Found 5 news articles for S
+2025-08-04 04:18:25,030 - __main__ - INFO - Extracted 5 news articles for S
+2025-08-04 04:18:25,030 - __main__ - INFO - Extracting news for E
+2025-08-04 04:18:25,031 - extract.news_data - INFO - Fetching news for E
+2025-08-04 04:18:25,333 - extract.news_data - INFO - Found 5 news articles for E
+2025-08-04 04:18:25,334 - __main__ - INFO - Extracted 5 news articles for E
+2025-08-04 04:18:25,334 - __main__ - INFO - Extracting news for B
+2025-08-04 04:18:25,334 - extract.news_data - INFO - Fetching news for B
+2025-08-04 04:18:25,608 - extract.news_data - INFO - Found 5 news articles for B
+2025-08-04 04:18:25,608 - __main__ - INFO - Extracted 5 news articles for B
+2025-08-04 04:18:25,608 - __main__ - INFO - Extracting news for AMZN
+2025-08-04 04:18:25,608 - extract.news_data - INFO - Fetching news for AMZN
+2025-08-04 04:18:25,941 - extract.news_data - INFO - Found 5 news articles for AMZN
+2025-08-04 04:18:25,941 - __main__ - INFO - Extracted 5 news articles for AMZN
+2025-08-04 04:18:25,941 - __main__ - INFO - Extracting news for FOR
+2025-08-04 04:18:25,941 - extract.news_data - INFO - Fetching news for FOR
+2025-08-04 04:18:26,321 - extract.news_data - INFO - Found 5 news articles for FOR
+2025-08-04 04:18:26,322 - __main__ - INFO - Extracted 5 news articles for FOR
+2025-08-04 04:18:26,322 - __main__ - INFO - Extracting news for AMC
+2025-08-04 04:18:26,322 - extract.news_data - INFO - Fetching news for AMC
+2025-08-04 04:18:26,550 - extract.news_data - INFO - Found 5 news articles for AMC
+2025-08-04 04:18:26,550 - __main__ - INFO - Extracted 5 news articles for AMC
+2025-08-04 04:18:26,550 - __main__ - INFO - Extracting news for EU
+2025-08-04 04:18:26,550 - extract.news_data - INFO - Fetching news for EU
+2025-08-04 04:18:26,800 - extract.news_data - INFO - Found 5 news articles for EU
+2025-08-04 04:18:26,801 - __main__ - INFO - Extracted 5 news articles for EU
+2025-08-04 04:18:26,801 - __main__ - INFO - Extracting news for A
+2025-08-04 04:18:26,801 - extract.news_data - INFO - Fetching news for A
+2025-08-04 04:18:27,067 - extract.news_data - INFO - Found 5 news articles for A
+2025-08-04 04:18:27,067 - __main__ - INFO - Extracted 5 news articles for A
+2025-08-04 04:18:27,068 - __main__ - INFO - Extracting news for BB
+2025-08-04 04:18:27,068 - extract.news_data - INFO - Fetching news for BB
+2025-08-04 04:18:27,301 - extract.news_data - INFO - Found 5 news articles for BB
+2025-08-04 04:18:27,301 - __main__ - INFO - Extracted 5 news articles for BB
+2025-08-04 04:18:27,302 - __main__ - INFO - Extracting news for T
+2025-08-04 04:18:27,302 - extract.news_data - INFO - Fetching news for T
+2025-08-04 04:18:27,562 - extract.news_data - INFO - Found 5 news articles for T
+2025-08-04 04:18:27,563 - __main__ - INFO - Extracted 5 news articles for T
+2025-08-04 04:18:27,563 - __main__ - INFO - Extracting news for GME
+2025-08-04 04:18:27,563 - extract.news_data - INFO - Fetching news for GME
+2025-08-04 04:18:27,887 - extract.news_data - INFO - Found 5 news articles for GME
+2025-08-04 04:18:27,888 - __main__ - INFO - Extracted 5 news articles for GME
+2025-08-04 04:18:27,888 - __main__ - INFO - Extracting news for ASIC
+2025-08-04 04:18:27,888 - extract.news_data - INFO - Fetching news for ASIC
+2025-08-04 04:18:28,138 - extract.news_data - INFO - Found 5 news articles for ASIC
+2025-08-04 04:18:28,138 - __main__ - INFO - Extracted 5 news articles for ASIC
+2025-08-04 04:18:28,138 - __main__ - INFO - Extracting news for UAL
+2025-08-04 04:18:28,138 - extract.news_data - INFO - Fetching news for UAL
+2025-08-04 04:18:28,362 - extract.news_data - INFO - Found 5 news articles for UAL
+2025-08-04 04:18:28,362 - __main__ - INFO - Extracted 5 news articles for UAL
+2025-08-04 04:18:28,362 - __main__ - INFO - Extracted news for 21 tickers
+2025-08-04 04:18:28,362 - __main__ - INFO - 4: Extracting stock data...
+2025-08-04 04:18:28,363 - __main__ - INFO - Extracting stock data for NOK
+2025-08-04 04:18:28,363 - extract.daily_stock_data - INFO - Fetching daily stock data for NOK
+2025-08-04 04:18:28,667 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for NOK
+2025-08-04 04:18:28,667 - __main__ - INFO - Extracted stock data for NOK (100 days)
+2025-08-04 04:18:28,667 - __main__ - INFO - Extracting stock data for NVDA
+2025-08-04 04:18:28,667 - extract.daily_stock_data - INFO - Fetching daily stock data for NVDA
+2025-08-04 04:18:28,938 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for NVDA
+2025-08-04 04:18:28,938 - __main__ - INFO - Extracted stock data for NVDA (100 days)
+2025-08-04 04:18:28,938 - __main__ - INFO - Extracting stock data for GTX
+2025-08-04 04:18:28,938 - extract.daily_stock_data - INFO - Fetching daily stock data for GTX
+2025-08-04 04:18:29,188 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for GTX
+2025-08-04 04:18:29,189 - __main__ - INFO - Extracted stock data for GTX (100 days)
+2025-08-04 04:18:29,189 - __main__ - INFO - Extracting stock data for IT
+2025-08-04 04:18:29,190 - extract.daily_stock_data - INFO - Fetching daily stock data for IT
+2025-08-04 04:18:29,450 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for IT
+2025-08-04 04:18:29,451 - __main__ - INFO - Extracted stock data for IT (100 days)
+2025-08-04 04:18:29,451 - __main__ - INFO - Extracting stock data for NOW
+2025-08-04 04:18:29,451 - extract.daily_stock_data - INFO - Fetching daily stock data for NOW
+2025-08-04 04:18:29,734 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for NOW
+2025-08-04 04:18:29,735 - __main__ - INFO - Extracted stock data for NOW (100 days)
+2025-08-04 04:18:29,735 - __main__ - INFO - Extracting stock data for L
+2025-08-04 04:18:29,735 - extract.daily_stock_data - INFO - Fetching daily stock data for L
+2025-08-04 04:18:30,022 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for L
+2025-08-04 04:18:30,023 - __main__ - INFO - Extracted stock data for L (100 days)
+2025-08-04 04:18:30,023 - __main__ - INFO - Extracting stock data for U
+2025-08-04 04:18:30,023 - extract.daily_stock_data - INFO - Fetching daily stock data for U
+2025-08-04 04:18:30,297 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for U
+2025-08-04 04:18:30,297 - __main__ - INFO - Extracted stock data for U (100 days)
+2025-08-04 04:18:30,298 - __main__ - INFO - Extracting stock data for RH
+2025-08-04 04:18:30,298 - extract.daily_stock_data - INFO - Fetching daily stock data for RH
+2025-08-04 04:18:30,552 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for RH
+2025-08-04 04:18:30,552 - __main__ - INFO - Extracted stock data for RH (100 days)
+2025-08-04 04:18:30,553 - __main__ - INFO - Extracting stock data for S
+2025-08-04 04:18:30,553 - extract.daily_stock_data - INFO - Fetching daily stock data for S
+2025-08-04 04:18:30,806 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for S
+2025-08-04 04:18:30,806 - __main__ - INFO - Extracted stock data for S (100 days)
+2025-08-04 04:18:30,806 - __main__ - INFO - Extracting stock data for E
+2025-08-04 04:18:30,807 - extract.daily_stock_data - INFO - Fetching daily stock data for E
+2025-08-04 04:18:31,067 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for E
+2025-08-04 04:18:31,067 - __main__ - INFO - Extracted stock data for E (100 days)
+2025-08-04 04:18:31,068 - __main__ - INFO - Extracting stock data for B
+2025-08-04 04:18:31,068 - extract.daily_stock_data - INFO - Fetching daily stock data for B
+2025-08-04 04:18:31,263 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for B
+2025-08-04 04:18:31,264 - __main__ - INFO - Extracted stock data for B (100 days)
+2025-08-04 04:18:31,264 - __main__ - INFO - Extracting stock data for AMZN
+2025-08-04 04:18:31,264 - extract.daily_stock_data - INFO - Fetching daily stock data for AMZN
+2025-08-04 04:18:31,557 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for AMZN
+2025-08-04 04:18:31,558 - __main__ - INFO - Extracted stock data for AMZN (100 days)
+2025-08-04 04:18:31,558 - __main__ - INFO - Extracting stock data for FOR
+2025-08-04 04:18:31,558 - extract.daily_stock_data - INFO - Fetching daily stock data for FOR
+2025-08-04 04:18:31,869 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for FOR
+2025-08-04 04:18:31,870 - __main__ - INFO - Extracted stock data for FOR (100 days)
+2025-08-04 04:18:31,870 - __main__ - INFO - Extracting stock data for AMC
+2025-08-04 04:18:31,870 - extract.daily_stock_data - INFO - Fetching daily stock data for AMC
+2025-08-04 04:18:32,138 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for AMC
+2025-08-04 04:18:32,138 - __main__ - INFO - Extracted stock data for AMC (100 days)
+2025-08-04 04:18:32,139 - __main__ - INFO - Extracting stock data for EU
+2025-08-04 04:18:32,139 - extract.daily_stock_data - INFO - Fetching daily stock data for EU
+2025-08-04 04:18:32,386 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for EU
+2025-08-04 04:18:32,387 - __main__ - INFO - Extracted stock data for EU (100 days)
+2025-08-04 04:18:32,387 - __main__ - INFO - Extracting stock data for A
+2025-08-04 04:18:32,387 - extract.daily_stock_data - INFO - Fetching daily stock data for A
+2025-08-04 04:18:32,638 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for A
+2025-08-04 04:18:32,639 - __main__ - INFO - Extracted stock data for A (100 days)
+2025-08-04 04:18:32,639 - __main__ - INFO - Extracting stock data for BB
+2025-08-04 04:18:32,639 - extract.daily_stock_data - INFO - Fetching daily stock data for BB
+2025-08-04 04:18:32,879 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for BB
+2025-08-04 04:18:32,879 - __main__ - INFO - Extracted stock data for BB (100 days)
+2025-08-04 04:18:32,879 - __main__ - INFO - Extracting stock data for T
+2025-08-04 04:18:32,880 - extract.daily_stock_data - INFO - Fetching daily stock data for T
+2025-08-04 04:18:33,125 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for T
+2025-08-04 04:18:33,125 - __main__ - INFO - Extracted stock data for T (100 days)
+2025-08-04 04:18:33,125 - __main__ - INFO - Extracting stock data for GME
+2025-08-04 04:18:33,126 - extract.daily_stock_data - INFO - Fetching daily stock data for GME
+2025-08-04 04:18:33,387 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for GME
+2025-08-04 04:18:33,387 - __main__ - INFO - Extracted stock data for GME (100 days)
+2025-08-04 04:18:33,388 - __main__ - INFO - Extracting stock data for ASIC
+2025-08-04 04:18:33,388 - extract.daily_stock_data - INFO - Fetching daily stock data for ASIC
+2025-08-04 04:18:33,634 - extract.daily_stock_data - INFO - Successfully fetched 36 days of data for ASIC
+2025-08-04 04:18:33,634 - __main__ - INFO - Extracted stock data for ASIC (36 days)
+2025-08-04 04:18:33,634 - __main__ - INFO - Extracting stock data for UAL
+2025-08-04 04:18:33,634 - extract.daily_stock_data - INFO - Fetching daily stock data for UAL
+2025-08-04 04:18:33,914 - extract.daily_stock_data - INFO - Successfully fetched 100 days of data for UAL
+2025-08-04 04:18:33,914 - __main__ - INFO - Extracted stock data for UAL (100 days)
+2025-08-04 04:18:33,915 - __main__ - INFO - Extracted stock data for 21 tickers
+2025-08-04 04:18:33,915 - __main__ - INFO - 5: Loading to database...
+2025-08-04 04:18:33,937 - load.db_operations - INFO - Inserted Reddit data with ID: 3
+2025-08-04 04:18:33,952 - load.db_operations - INFO - Inserted 5 ticker mentions for post 3
+2025-08-04 04:18:33,952 - __main__ - INFO - Loaded post 3 with 5 ticker mentions
+2025-08-04 04:18:33,964 - load.db_operations - INFO - Inserted Reddit data with ID: 4
+2025-08-04 04:18:33,976 - load.db_operations - INFO - Inserted 1 ticker mentions for post 4
+2025-08-04 04:18:33,976 - __main__ - INFO - Loaded post 4 with 1 ticker mentions
+2025-08-04 04:18:33,987 - load.db_operations - INFO - Inserted Reddit data with ID: 5
+2025-08-04 04:18:33,999 - load.db_operations - INFO - Inserted 3 ticker mentions for post 5
+2025-08-04 04:18:33,999 - __main__ - INFO - Loaded post 5 with 3 ticker mentions
+2025-08-04 04:18:34,010 - load.db_operations - INFO - Inserted Reddit data with ID: 6
+2025-08-04 04:18:34,020 - load.db_operations - INFO - Inserted 2 ticker mentions for post 6
+2025-08-04 04:18:34,021 - __main__ - INFO - Loaded post 6 with 2 ticker mentions
+2025-08-04 04:18:34,029 - load.db_operations - INFO - Inserted Reddit data with ID: 7
+2025-08-04 04:18:34,039 - load.db_operations - INFO - Inserted 1 ticker mentions for post 7
+2025-08-04 04:18:34,039 - __main__ - INFO - Loaded post 7 with 1 ticker mentions
+2025-08-04 04:18:34,048 - load.db_operations - INFO - Inserted Reddit data with ID: 8
+2025-08-04 04:18:34,061 - load.db_operations - INFO - Inserted 6 ticker mentions for post 8
+2025-08-04 04:18:34,061 - __main__ - INFO - Loaded post 8 with 6 ticker mentions
+2025-08-04 04:18:34,070 - load.db_operations - INFO - Inserted Reddit data with ID: 9
+2025-08-04 04:18:34,082 - load.db_operations - INFO - Inserted 4 ticker mentions for post 9
+2025-08-04 04:18:34,083 - __main__ - INFO - Loaded post 9 with 4 ticker mentions
+2025-08-04 04:18:34,092 - load.db_operations - INFO - Inserted Reddit data with ID: 10
+2025-08-04 04:18:34,102 - load.db_operations - INFO - Inserted 1 ticker mentions for post 10
+2025-08-04 04:18:34,102 - __main__ - INFO - Loaded post 10 with 1 ticker mentions
+2025-08-04 04:18:34,111 - load.db_operations - INFO - Inserted Reddit data with ID: 11
+2025-08-04 04:18:34,121 - load.db_operations - INFO - Inserted 1 ticker mentions for post 11
+2025-08-04 04:18:34,121 - __main__ - INFO - Loaded post 11 with 1 ticker mentions
+2025-08-04 04:18:34,130 - load.db_operations - INFO - Inserted Reddit data with ID: 12
+2025-08-04 04:18:34,140 - load.db_operations - INFO - Inserted 2 ticker mentions for post 12
+2025-08-04 04:18:34,141 - __main__ - INFO - Loaded post 12 with 2 ticker mentions
+2025-08-04 04:18:34,149 - load.db_operations - INFO - Inserted Reddit data with ID: 13
+2025-08-04 04:18:34,158 - load.db_operations - INFO - Inserted 1 ticker mentions for post 13
+2025-08-04 04:18:34,158 - __main__ - INFO - Loaded post 13 with 1 ticker mentions
+2025-08-04 04:18:34,167 - load.db_operations - INFO - Inserted Reddit data with ID: 14
+2025-08-04 04:18:34,176 - load.db_operations - INFO - Inserted 1 ticker mentions for post 14
+2025-08-04 04:18:34,176 - __main__ - INFO - Loaded post 14 with 1 ticker mentions
+2025-08-04 04:18:34,185 - load.db_operations - INFO - Inserted Reddit data with ID: 15
+2025-08-04 04:18:34,195 - load.db_operations - INFO - Inserted 1 ticker mentions for post 15
+2025-08-04 04:18:34,195 - __main__ - INFO - Loaded post 15 with 1 ticker mentions
+2025-08-04 04:18:34,204 - load.db_operations - INFO - Inserted Reddit data with ID: 16
+2025-08-04 04:18:34,214 - load.db_operations - INFO - Inserted 3 ticker mentions for post 16
+2025-08-04 04:18:34,214 - __main__ - INFO - Loaded post 16 with 3 ticker mentions
+2025-08-04 04:18:34,223 - load.db_operations - INFO - Inserted Reddit data with ID: 17
+2025-08-04 04:18:34,234 - load.db_operations - INFO - Inserted 4 ticker mentions for post 17
+2025-08-04 04:18:34,234 - __main__ - INFO - Loaded post 17 with 4 ticker mentions
+2025-08-04 04:18:34,244 - load.db_operations - INFO - Inserted Reddit data with ID: 18
+2025-08-04 04:18:34,253 - load.db_operations - INFO - Inserted 2 ticker mentions for post 18
+2025-08-04 04:18:34,254 - __main__ - INFO - Loaded post 18 with 2 ticker mentions
+2025-08-04 04:18:34,262 - load.db_operations - INFO - Inserted Reddit data with ID: 19
+2025-08-04 04:18:34,273 - load.db_operations - INFO - Inserted 1 ticker mentions for post 19
+2025-08-04 04:18:34,273 - __main__ - INFO - Loaded post 19 with 1 ticker mentions
+2025-08-04 04:18:34,282 - load.db_operations - INFO - Inserted Reddit data with ID: 20
+2025-08-04 04:18:34,291 - load.db_operations - INFO - Inserted 2 ticker mentions for post 20
+2025-08-04 04:18:34,291 - __main__ - INFO - Loaded post 20 with 2 ticker mentions
+2025-08-04 04:18:34,302 - load.db_operations - INFO - Inserted Reddit data with ID: 21
+2025-08-04 04:18:34,313 - load.db_operations - INFO - Inserted 3 ticker mentions for post 21
+2025-08-04 04:18:34,313 - __main__ - INFO - Loaded post 21 with 3 ticker mentions
+2025-08-04 04:18:34,321 - load.db_operations - INFO - Inserted Reddit data with ID: 22
+2025-08-04 04:18:34,333 - load.db_operations - INFO - Inserted 2 ticker mentions for post 22
+2025-08-04 04:18:34,333 - __main__ - INFO - Loaded post 22 with 2 ticker mentions
+2025-08-04 04:18:34,342 - load.db_operations - INFO - Inserted Reddit data with ID: 23
+2025-08-04 04:18:34,352 - load.db_operations - INFO - Inserted 1 ticker mentions for post 23
+2025-08-04 04:18:34,352 - __main__ - INFO - Loaded post 23 with 1 ticker mentions
+2025-08-04 04:18:34,364 - load.db_operations - INFO - Inserted 5 news articles for NOK
+2025-08-04 04:18:34,364 - __main__ - INFO - Loaded 5 news articles for NOK
+2025-08-04 04:18:34,378 - load.db_operations - INFO - Inserted 5 news articles for NVDA
+2025-08-04 04:18:34,378 - __main__ - INFO - Loaded 5 news articles for NVDA
+2025-08-04 04:18:34,390 - load.db_operations - INFO - Inserted 5 news articles for GTX
+2025-08-04 04:18:34,391 - __main__ - INFO - Loaded 5 news articles for GTX
+2025-08-04 04:18:34,403 - load.db_operations - INFO - Inserted 5 news articles for IT
+2025-08-04 04:18:34,403 - __main__ - INFO - Loaded 5 news articles for IT
+2025-08-04 04:18:34,415 - load.db_operations - INFO - Inserted 5 news articles for NOW
+2025-08-04 04:18:34,415 - __main__ - INFO - Loaded 5 news articles for NOW
+2025-08-04 04:18:34,427 - load.db_operations - INFO - Inserted 5 news articles for L
+2025-08-04 04:18:34,428 - __main__ - INFO - Loaded 5 news articles for L
+2025-08-04 04:18:34,439 - load.db_operations - INFO - Inserted 5 news articles for U
+2025-08-04 04:18:34,440 - __main__ - INFO - Loaded 5 news articles for U
+2025-08-04 04:18:34,451 - load.db_operations - INFO - Inserted 5 news articles for RH
+2025-08-04 04:18:34,452 - __main__ - INFO - Loaded 5 news articles for RH
+2025-08-04 04:18:34,463 - load.db_operations - INFO - Inserted 5 news articles for S
+2025-08-04 04:18:34,463 - __main__ - INFO - Loaded 5 news articles for S
+2025-08-04 04:18:34,473 - load.db_operations - INFO - Inserted 5 news articles for E
+2025-08-04 04:18:34,474 - __main__ - INFO - Loaded 5 news articles for E
+2025-08-04 04:18:34,484 - load.db_operations - INFO - Inserted 5 news articles for B
+2025-08-04 04:18:34,484 - __main__ - INFO - Loaded 5 news articles for B
+2025-08-04 04:18:34,496 - load.db_operations - INFO - Inserted 5 news articles for AMZN
+2025-08-04 04:18:34,496 - __main__ - INFO - Loaded 5 news articles for AMZN
+2025-08-04 04:18:34,507 - load.db_operations - INFO - Inserted 5 news articles for FOR
+2025-08-04 04:18:34,507 - __main__ - INFO - Loaded 5 news articles for FOR
+2025-08-04 04:18:34,518 - load.db_operations - INFO - Inserted 5 news articles for AMC
+2025-08-04 04:18:34,518 - __main__ - INFO - Loaded 5 news articles for AMC
+2025-08-04 04:18:34,529 - load.db_operations - INFO - Inserted 5 news articles for EU
+2025-08-04 04:18:34,529 - __main__ - INFO - Loaded 5 news articles for EU
+2025-08-04 04:18:34,540 - load.db_operations - INFO - Inserted 5 news articles for A
+2025-08-04 04:18:34,540 - __main__ - INFO - Loaded 5 news articles for A
+2025-08-04 04:18:34,551 - load.db_operations - INFO - Inserted 5 news articles for BB
+2025-08-04 04:18:34,552 - __main__ - INFO - Loaded 5 news articles for BB
+2025-08-04 04:18:34,565 - load.db_operations - INFO - Inserted 5 news articles for T
+2025-08-04 04:18:34,565 - __main__ - INFO - Loaded 5 news articles for T
+2025-08-04 04:18:34,577 - load.db_operations - INFO - Inserted 5 news articles for GME
+2025-08-04 04:18:34,577 - __main__ - INFO - Loaded 5 news articles for GME
+2025-08-04 04:18:34,588 - load.db_operations - INFO - Inserted 5 news articles for ASIC
+2025-08-04 04:18:34,588 - __main__ - INFO - Loaded 5 news articles for ASIC
+2025-08-04 04:18:34,599 - load.db_operations - INFO - Inserted 5 news articles for UAL
+2025-08-04 04:18:34,599 - __main__ - INFO - Loaded 5 news articles for UAL
+2025-08-04 04:18:34,642 - load.db_operations - INFO - Inserted stock data for NOK
+2025-08-04 04:18:34,642 - __main__ - INFO - Loaded stock data for NOK
+2025-08-04 04:18:34,685 - load.db_operations - INFO - Inserted stock data for NVDA
+2025-08-04 04:18:34,686 - __main__ - INFO - Loaded stock data for NVDA
+2025-08-04 04:18:34,728 - load.db_operations - INFO - Inserted stock data for GTX
+2025-08-04 04:18:34,729 - __main__ - INFO - Loaded stock data for GTX
+2025-08-04 04:18:34,775 - load.db_operations - INFO - Inserted stock data for IT
+2025-08-04 04:18:34,775 - __main__ - INFO - Loaded stock data for IT
+2025-08-04 04:18:34,821 - load.db_operations - INFO - Inserted stock data for NOW
+2025-08-04 04:18:34,821 - __main__ - INFO - Loaded stock data for NOW
+2025-08-04 04:18:34,866 - load.db_operations - INFO - Inserted stock data for L
+2025-08-04 04:18:34,866 - __main__ - INFO - Loaded stock data for L
+2025-08-04 04:18:34,913 - load.db_operations - INFO - Inserted stock data for U
+2025-08-04 04:18:34,914 - __main__ - INFO - Loaded stock data for U
+2025-08-04 04:18:34,961 - load.db_operations - INFO - Inserted stock data for RH
+2025-08-04 04:18:34,962 - __main__ - INFO - Loaded stock data for RH
+2025-08-04 04:18:35,007 - load.db_operations - INFO - Inserted stock data for S
+2025-08-04 04:18:35,008 - __main__ - INFO - Loaded stock data for S
+2025-08-04 04:18:35,056 - load.db_operations - INFO - Inserted stock data for E
+2025-08-04 04:18:35,056 - __main__ - INFO - Loaded stock data for E
+2025-08-04 04:18:35,103 - load.db_operations - INFO - Inserted stock data for B
+2025-08-04 04:18:35,103 - __main__ - INFO - Loaded stock data for B
+2025-08-04 04:18:35,150 - load.db_operations - INFO - Inserted stock data for AMZN
+2025-08-04 04:18:35,150 - __main__ - INFO - Loaded stock data for AMZN
+2025-08-04 04:18:35,196 - load.db_operations - INFO - Inserted stock data for FOR
+2025-08-04 04:18:35,196 - __main__ - INFO - Loaded stock data for FOR
+2025-08-04 04:18:35,243 - load.db_operations - INFO - Inserted stock data for AMC
+2025-08-04 04:18:35,243 - __main__ - INFO - Loaded stock data for AMC
+2025-08-04 04:18:35,294 - load.db_operations - INFO - Inserted stock data for EU
+2025-08-04 04:18:35,294 - __main__ - INFO - Loaded stock data for EU
+2025-08-04 04:18:35,342 - load.db_operations - INFO - Inserted stock data for A
+2025-08-04 04:18:35,342 - __main__ - INFO - Loaded stock data for A
+2025-08-04 04:18:35,393 - load.db_operations - INFO - Inserted stock data for BB
+2025-08-04 04:18:35,393 - __main__ - INFO - Loaded stock data for BB
+2025-08-04 04:18:35,440 - load.db_operations - INFO - Inserted stock data for T
+2025-08-04 04:18:35,441 - __main__ - INFO - Loaded stock data for T
+2025-08-04 04:18:35,487 - load.db_operations - INFO - Inserted stock data for GME
+2025-08-04 04:18:35,487 - __main__ - INFO - Loaded stock data for GME
+2025-08-04 04:18:35,510 - load.db_operations - INFO - Inserted stock data for ASIC
+2025-08-04 04:18:35,510 - __main__ - INFO - Loaded stock data for ASIC
+2025-08-04 04:18:35,556 - load.db_operations - INFO - Inserted stock data for UAL
+2025-08-04 04:18:35,557 - __main__ - INFO - Loaded stock data for UAL
+2025-08-04 04:18:35,581 - load.db_operations - INFO - Refreshed materialized view
+2025-08-04 04:18:35,581 - __main__ - INFO - Refreshed materialized view
+2025-08-04 04:18:35,581 - __main__ - INFO - Pipeline completed successfully!
+2025-08-04 04:18:35,581 - __main__ - INFO - Duration: 15.35 seconds
+2025-08-04 04:18:35,582 - __main__ - INFO - Posts processed: 30
+2025-08-04 04:18:35,582 - __main__ - INFO - Posts with tickers: 21
+2025-08-04 04:18:35,582 - __main__ - INFO - Unique tickers found: 21
+2025-08-04 04:18:35,582 - __main__ - INFO - Reddit posts loaded: 21
+2025-08-04 04:18:35,582 - __main__ - INFO - News articles loaded: 21
+2025-08-04 04:18:35,582 - __main__ - INFO - Stock datasets loaded: 21
