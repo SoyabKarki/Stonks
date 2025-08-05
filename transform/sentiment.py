@@ -16,12 +16,21 @@ logger = logging.getLogger(__name__)
 device = 0 if torch.cuda.is_available() else -1
 logger.info(f"Using device: {'cuda:0' if device == 0 else 'CPU'}")
 
-# Load FinBERT
-pipe = pipeline(
-    "text-classification",
-    model="ProsusAI/finbert",
-    device=device
-)
+_pipe = None
+
+def _get_pipeline():
+    """Get or create the sentiment analysis pipeline (lazy loading)"""
+    global _pipe
+    if _pipe is None:
+        logger.info("Loading FinBERT model...")
+        _pipe = pipeline(
+            "text-classification",
+            model="ProsusAI/finbert",
+            device=device
+        )
+        logger.info("FinBERT model loaded successfully")
+    return _pipe
+
 
 def _split_sentences(text: str) -> List[str]:
     """Split text into sentences using regex"""
@@ -62,6 +71,7 @@ def get_ticker_sentiment(text: str) -> Dict[str, Dict]:
     if not all_sentences:
         return {}
 
+    pipe = _get_pipeline()
     results = pipe(all_sentences, batch_size=16)
     sent_results = {s: r for s, r in zip(all_sentences, results)}
 

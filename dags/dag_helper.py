@@ -2,6 +2,9 @@ import logging
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Set
 import time
+import sys
+
+sys.path.insert(0, '/opt/airflow')
 
 from extract.reddit_data import get_subreddit_data
 from extract.daily_stock_data import get_daily_stock_data
@@ -22,7 +25,7 @@ class RedditDataPipeline:
         self.stock_days = 30
         self.top_tickers_limit = 10
     
-    def _extract_reddit_data(self) -> List[Any]:
+    def extract_reddit_data(self) -> List[Any]:
         """Extract Reddit data from multiple subreddits"""
         
         all_posts = []
@@ -40,7 +43,7 @@ class RedditDataPipeline:
         logger.info(f"Extracted {len(all_posts)} posts from all subreddits")
         return all_posts
 
-    def _extract_news_data(self, tickers: Set[str]) -> Dict[str, List[Dict[str, Any]]]:
+    def extract_news_data(self, tickers: Set[str]) -> Dict[str, List[Dict[str, Any]]]:
         """Extract news data for all mentioned tickers"""
         
         news_data = {}
@@ -62,7 +65,7 @@ class RedditDataPipeline:
         logger.info(f"Extracted news for {len(news_data)} tickers")
         return news_data
     
-    def _extract_stock_data(self, tickers: Set[str]) -> Dict[str, Dict[str, Any]]:
+    def extract_stock_data(self, tickers: Set[str]) -> Dict[str, Dict[str, Any]]:
         """Extract stock data for all mentioned tickers"""
         
         stock_data = {}
@@ -84,7 +87,7 @@ class RedditDataPipeline:
         logger.info(f"Extracted stock data for {len(stock_data)} tickers")
         return stock_data
     
-    def _transform_sentiment(self, posts: List[Any]) -> tuple[List[Dict[str, Any]], Set[str]]:
+    def transform_sentiment(self, posts: List[Any]) -> tuple[List[Dict[str, Any]], Set[str]]:
         """Transform Reddit data into sentiment analysis and collect unique tickers"""
 
         transformed_posts = []
@@ -124,7 +127,7 @@ class RedditDataPipeline:
         logger.info(f"Transformed {len(transformed_posts)} posts with {len(all_tickers)} unique tickers")
         return transformed_posts, all_tickers
     
-    def _load_reddit_data(self, transformed_posts: List[Dict[str, Any]]) -> int:
+    def load_reddit_data(self, transformed_posts: List[Dict[str, Any]]) -> int:
         """Load transformed Reddit data and ticker mentions data to respective database tables"""
 
         loaded_count = 0
@@ -154,7 +157,7 @@ class RedditDataPipeline:
 
         return loaded_count
 
-    def _load_news_data(self, news_data: Dict[str, List[Dict[str, Any]]]) -> int:
+    def load_news_data(self, news_data: Dict[str, List[Dict[str, Any]]]) -> int:
         """Load news data to database"""
         
         loaded_count = 0
@@ -174,7 +177,7 @@ class RedditDataPipeline:
         
         return loaded_count
 
-    def _load_stock_data(self, stock_data: Dict[str, Dict[str, Any]]) -> int:
+    def load_stock_data(self, stock_data: Dict[str, Dict[str, Any]]) -> int:
         """Load stock data to database"""
         
         loaded_count = 0
@@ -195,7 +198,7 @@ class RedditDataPipeline:
         return loaded_count
 
     
-    def run_pipeline(self):
+    def _test_pipeline(self):
         """Run the full ETL pipeline"""
 
         logger.info("Starting the Reddit data pipeline")
@@ -204,7 +207,7 @@ class RedditDataPipeline:
         try:
             # Extract Reddit data
             logger.info("1: Extracting Reddit data...")
-            posts = self._extract_reddit_data()
+            posts = self.extract_reddit_data()
             
             if not posts:
                 logger.warning("No posts extracted. Pipeline stopping.")
@@ -212,7 +215,7 @@ class RedditDataPipeline:
 
             # Transform data and extract ticker mentions
             logger.info("2: Transforming data...")
-            transformed_posts, unique_tickers = self._transform_sentiment(posts)
+            transformed_posts, unique_tickers = self.transform_sentiment(posts)
             
             if not transformed_posts:
                 logger.warning("No posts with ticker mentions found. Pipeline stopping.")
@@ -220,17 +223,17 @@ class RedditDataPipeline:
 
             # Extract news data for all mentioned tickers
             logger.info("3: Extracting news data...")
-            news_data = self._extract_news_data(unique_tickers)
+            news_data = self.extract_news_data(unique_tickers)
 
             # Extract stock data for all mentioned tickers
             logger.info("4: Extracting stock data...")
-            stock_data = self._extract_stock_data(unique_tickers)
+            stock_data = self.extract_stock_data(unique_tickers)
 
             # Load all data to database
             logger.info("5: Loading to database...")
-            reddit_loaded = self._load_reddit_data(transformed_posts)
-            news_loaded = self._load_news_data(news_data)
-            stock_loaded = self._load_stock_data(stock_data)
+            reddit_loaded = self.load_reddit_data(transformed_posts)
+            news_loaded = self.load_news_data(news_data)
+            stock_loaded = self.load_stock_data(stock_data)
             
             # Refresh materialized view if Reddit data was loaded
             if reddit_loaded > 0:
@@ -259,4 +262,5 @@ etl_pipeline = RedditDataPipeline()
 
 
 if __name__ == "__main__":
-    etl_pipeline.run_pipeline()
+    # Testing
+    etl_pipeline._test_pipeline()
