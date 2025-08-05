@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime, timedelta
-from typing import List, Dict, Any, Set
+from typing import List, Dict, Any
 import time
 import sys
 
@@ -25,8 +25,8 @@ class RedditDataPipeline:
         self.stock_days = 30
         self.top_tickers_limit = 10
     
-    def extract_reddit_data(self) -> List[Any]:
-        """Extract Reddit data from multiple subreddits"""
+    def extract_reddit_data(self) -> List[Dict[str, Any]]:
+        """Extract Reddit data and return serializable dictionaries"""
         
         all_posts = []
         for subreddit in self.subreddits:
@@ -35,7 +35,22 @@ class RedditDataPipeline:
 
                 posts = get_subreddit_data(subreddit, self.post_limit)
                 posts_list = list(posts)
-                all_posts.extend(posts_list)
+                
+                # Convert PRAW objects to serializable dictionaries
+                for post in posts_list:
+                    post_dict = {
+                        'id': post.id,
+                        'title': post.title,
+                        'selftext': getattr(post, 'selftext', ''),
+                        'subreddit': str(post.subreddit),
+                        'score': getattr(post, 'score', 0),
+                        'num_comments': getattr(post, 'num_comments', 0),
+                        'created_utc': post.created_utc,
+                        'url': post.url,
+                        'author': str(post.author) if post.author else '[deleted]'
+                    }
+                    all_posts.append(post_dict)
+                    
                 logger.info(f"Extracted {len(posts_list)} posts from r/{subreddit}")
             except Exception as e:
                 logger.error(f"Error extracting posts from r/{subreddit}: {str(e)}")
@@ -43,7 +58,7 @@ class RedditDataPipeline:
         logger.info(f"Extracted {len(all_posts)} posts from all subreddits")
         return all_posts
 
-    def extract_news_data(self, tickers: Set[str]) -> Dict[str, List[Dict[str, Any]]]:
+    def extract_news_data(self, tickers: List[str]) -> Dict[str, List[Dict[str, Any]]]:
         """Extract news data for all mentioned tickers"""
         
         news_data = {}
@@ -65,7 +80,7 @@ class RedditDataPipeline:
         logger.info(f"Extracted news for {len(news_data)} tickers")
         return news_data
     
-    def extract_stock_data(self, tickers: Set[str]) -> Dict[str, Dict[str, Any]]:
+    def extract_stock_data(self, tickers: List[str]) -> Dict[str, Dict[str, Any]]:
         """Extract stock data for all mentioned tickers"""
         
         stock_data = {}
@@ -87,18 +102,18 @@ class RedditDataPipeline:
         logger.info(f"Extracted stock data for {len(stock_data)} tickers")
         return stock_data
     
-    def transform_sentiment(self, posts: List[Any]) -> tuple[List[Dict[str, Any]], Set[str]]:
-        """Transform Reddit data into sentiment analysis and collect unique tickers"""
+    def transform_sentiment(self, posts_dicts: List[Dict[str, Any]]) -> tuple[List[Dict[str, Any]], List[str]]:
+        """Transform Reddit data from dictionaries into sentiment analysis and collect unique tickers"""
 
         transformed_posts = []
         all_tickers = set()
 
-        for post in posts:
+        for post_dict in posts_dicts:
             try:
                 # Combine title and body for context
-                text = post.title
-                if hasattr(post, 'selftext') and post.selftext:
-                    text += f"\n\n{post.selftext}"
+                text = post_dict['title']
+                if post_dict.get('selftext'):
+                    text += f"\n\n{post_dict['selftext']}"
                 
                 # Extract tickers and sentiment
                 ticker_sentiments = get_ticker_sentiment(text)
@@ -109,24 +124,24 @@ class RedditDataPipeline:
                     
                     # Prepare post data
                     post_data = {
-                        'title': post.title,
-                        'body': getattr(post, 'selftext', ''),
-                        'subreddit': str(post.subreddit),
-                        'post_score': getattr(post, 'score', 0),
-                        'comment_count': getattr(post, 'num_comments', 0),
-                        'created_utc': datetime.fromtimestamp(post.created_utc),
+                        'title': post_dict['title'],
+                        'body': post_dict.get('selftext', ''),
+                        'subreddit': post_dict['subreddit'],
+                        'post_score': post_dict.get('score', 0),
+                        'comment_count': post_dict.get('num_comments', 0),
+                        'created_utc': datetime.fromtimestamp(post_dict['created_utc']),
                         'ticker_sentiments': ticker_sentiments
                     }
 
                     transformed_posts.append(post_data)
-                    logger.info(f"Transformed post: {post.title[:50]}... with {len(ticker_sentiments)} tickers")
+                    logger.info(f"Transformed post: {post_dict['title'][:50]}... with {len(ticker_sentiments)} tickers")
             
             except Exception as e:
-                logger.error(f"Error transforming post {getattr(post, 'id', 'unknown')}: {str(e)}")
+                logger.error(f"Error transforming post {post_dict.get('id', 'unknown')}: {str(e)}")
 
         logger.info(f"Transformed {len(transformed_posts)} posts with {len(all_tickers)} unique tickers")
-        return transformed_posts, all_tickers
-    
+        return transformed_posts, list(all_tickers)
+
     def load_reddit_data(self, transformed_posts: List[Dict[str, Any]]) -> int:
         """Load transformed Reddit data and ticker mentions data to respective database tables"""
 

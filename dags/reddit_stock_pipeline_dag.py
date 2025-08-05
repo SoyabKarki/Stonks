@@ -38,8 +38,7 @@ with DAG(
         Run sentiment/ticker extraction.
         Returns a tuple: (transformed_posts, unique_tickers)
         """
-        transformed_posts, ticker_set = pipeline.transform_sentiment(posts)
-        return transformed_posts, list(ticker_set)
+        return pipeline.transform_sentiment(posts)
 
     @task
     def extract_news(unique_tickers):
