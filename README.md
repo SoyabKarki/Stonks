@@ -4,38 +4,41 @@ A comprehensive ETL pipeline that extracts stock discussions from Reddit, analyz
 
 ## Architecture
 
-(TODO: Add architechture photo!!1!)
+![Overall Architecture](./images/ETL.png)
+
+![Airflow DAG](./images/airflow.png)
+
 
 ## Project Structure
 
 Stonks/
-├── dags/                             # Airflow DAG definitions
-│   ├── reddit_stock_pipeline_dag.py  # Main Airflow pipeline DAG
-│   └── dag_helper.py                 # Business logic used by DAG
-│
-├── extract/                          # Data extraction modules
-│   ├── reddit_data.py                # Reddit API integration
-│   ├── news_data.py                  # News data using News API 
-│   ├── daily_stock_data.py           # Alpha Vantage stock price data
-│   ├── ticker_symbols.py             # Utility to extract stock tickers from text
-│   └── us_symbols.csv                # List of all US stock symbols
-│
-├── transform/                        # Data transformation layer
-│   └── sentiment.py                  # FinBERT-based sentiment analysis
-│
-├── load/                             # Data loading layer
-│   └── db_operations.py              # PostgreSQL DB insert/update logic
-│
-├── configs/                          # Configuration and setup scripts
-│   ├── db_connection.py              # PostgreSQL connection logic
-│   ├── db_init.sql                   # SQL schema definition for DB
-│   ├── praw_config.py                # Reddit API credentials/config
-│   └── logging_config.py             # Logging format and handlers
-│
-├── docker-compose.yml                # Docker Compose service definitions
-├── Dockerfile                        # Custom Dockerfile for Airflow image
-├── requirements.txt                  # Python dependencies
-└── .env                              # Environment variables 
+├── dags/                             # Airflow DAG definitions  
+│   ├── reddit_stock_pipeline_dag.py  # Main Airflow pipeline DAG  
+│   └── dag_helper.py                 # Business logic used by DAG  
+│  
+├── extract/                          # Data extraction modules  
+│   ├── reddit_data.py                # Reddit API integration  
+│   ├── news_data.py                  # News data using News API   
+│   ├── daily_stock_data.py           # Alpha Vantage stock price data  
+│   ├── ticker_symbols.py             # Utility to extract stock tickers from text  
+│   └── us_symbols.csv                # List of all US stock symbols  
+│  
+├── transform/                        # Data transformation layer  
+│   └── sentiment.py                  # FinBERT-based sentiment analysis  
+│  
+├── load/                             # Data loading layer  
+│   └── db_operations.py              # PostgreSQL DB insert/update logic  
+│  
+├── configs/                          # Configuration and setup scripts  
+│   ├── db_connection.py              # PostgreSQL connection logic  
+│   ├── db_init.sql                   # SQL schema definition for DB  
+│   ├── praw_config.py                # Reddit API credentials/config  
+│   └── logging_config.py             # Logging format and handlers  
+│   
+├── docker-compose.yml                # Docker Compose service definitions  
+├── Dockerfile                        # Custom Dockerfile for Airflow image  
+├── requirements.txt                  # Python dependencies  
+└── .env                              # Environment variables   
 
 
 ## Quick Start
@@ -123,3 +126,68 @@ docker compose ps
 
 - **`mv_ticker_mentions`**: Materialized view with aggregated ticker sentiment
 - **`view_daily_sentiment_trends`**: Daily sentiment trends by ticker
+
+```mermaid
+erDiagram
+    reddit_posts ||--o{ ticker_mentions : "one to many"
+
+    reddit_posts {
+        SERIAL id PK
+        TEXT title
+        TEXT body
+        VARCHAR subreddit
+        INTEGER post_score
+        INTEGER comment_count
+        TIMESTAMP created_utc
+        TIMESTAMP processed_at
+    }
+
+    ticker_mentions {
+        SERIAL id PK
+        INTEGER post_id FK
+        VARCHAR ticker
+        VARCHAR sentiment_label
+        DECIMAL sentiment_score
+        TEXT context
+    }
+
+    news_articles {
+        SERIAL id PK
+        VARCHAR ticker
+        TEXT title
+        TEXT description
+        TEXT url
+        VARCHAR source
+        TIMESTAMP published_at
+        TEXT content
+        TIMESTAMP created_at
+    }
+
+    stock_data {
+        SERIAL id PK
+        VARCHAR ticker
+        DATE date
+        DECIMAL open_price
+        DECIMAL high_price
+        DECIMAL low_price
+        DECIMAL close_price
+        BIGINT volume
+        TIMESTAMP created_at
+    }
+
+    mv_ticker_mentions {
+        VARCHAR ticker
+        INTEGER mention_count
+        DECIMAL avg_sentiment_score
+        INTEGER positive_count
+        INTEGER negative_count
+        INTEGER neutral_count
+    }
+
+    view_daily_sentiment_trends {
+        VARCHAR ticker
+        DATE day
+        INTEGER mention_count
+        DECIMAL avg_sentiment_score
+    }
+```
