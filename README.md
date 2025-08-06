@@ -33,6 +33,7 @@ A comprehensive ETL pipeline that extracts stock discussions from Reddit, analyz
 
 ## Project Structure
 
+```text
 Stonks/  
 ├── dags/                             # Airflow DAG definitions  
 │   ├── reddit_stock_pipeline_dag.py  # Main Airflow pipeline DAG  
@@ -61,7 +62,7 @@ Stonks/
 ├── Dockerfile                        # Custom Dockerfile for Airflow image  
 ├── requirements.txt                  # Python dependencies  
 └── .env                              # Environment variables   
-
+```
 
 ## Quick Start
 
