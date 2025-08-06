@@ -33,7 +33,7 @@ A comprehensive ETL pipeline that extracts stock discussions from Reddit, analyz
 
 ## Project Structure
 
-Stonks/
+Stonks/  
 ├── dags/                             # Airflow DAG definitions  
 │   ├── reddit_stock_pipeline_dag.py  # Main Airflow pipeline DAG  
 │   └── dag_helper.py                 # Business logic used by DAG  
