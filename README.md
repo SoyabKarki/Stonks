@@ -1,10 +1,34 @@
-# Stonks - Reddit Stock Sentiment Analysis Pipeline
+# Stonks - A Tool for Due Diligence (DD)
 
 A comprehensive ETL pipeline that extracts stock discussions from Reddit, analyzes sentiment using FinBERT, fetches corresponding news and stock data, and loads everything into a PostgreSQL database for analysis.
 
+## Features
+
+- **Multi-Source Reddit Extraction**: Automatically pulls posts from popular stock subreddits like r/investing, r/wallstreetbets, and r/stocks
+- **AI-Powered Sentiment Analysis**: Uses FinBERT (Financial BERT) model to analyze sentiment for mentioned stock tickers
+- **Real-Time News Integration**: Fetches latest news articles for discovered tickers via News API
+- **Historical Stock Data**: Retrieves stock price data and trading volumes via Alpha Vantage API
+- **Automated ETL Pipeline**: Runs daily using Apache Airflow with task dependencies and error handling
+- **Scalable Architecture**: Containerized with Docker for easy deployment and scaling
+- **Optimized Database**: PostgreSQL with materialized views for fast analytics and reporting
+- **Monitoring & Logging**: Built-in logging and Airflow UI for pipeline monitoring and debugging
+
+## Core Tools & Technologies
+
+- **Python**  
+- **Pandas**    
+- **Apache Airflow**  
+- **PostgreSQL**  
+- **Docker**  
+- **PyTorch (FinBERT)**  
+
 ## Architecture
 
+### Overall Architecture:
+
 ![Overall Architecture](./images/ETL.png)
+
+### Airflow DAG:
 
 ![Airflow DAG](./images/airflow.png)
 
@@ -126,6 +150,8 @@ docker compose ps
 
 - **`mv_ticker_mentions`**: Materialized view with aggregated ticker sentiment
 - **`view_daily_sentiment_trends`**: Daily sentiment trends by ticker
+
+### UML:
 
 ```mermaid
 erDiagram
