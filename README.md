@@ -13,14 +13,12 @@ A comprehensive ETL pipeline that extracts stock discussions from Reddit, analyz
 - **Optimized Database**: PostgreSQL with materialized views for fast analytics and reporting
 - **Monitoring & Logging**: Built-in logging and Airflow UI for pipeline monitoring and debugging
 
-## Core Tools & Technologies
+## Core Tools & Technologies Used
 
 - **Python**  
-- **Pandas**    
 - **Apache Airflow**  
 - **PostgreSQL**  
 - **Docker**  
-- **PyTorch (FinBERT)**  
 
 ## Architecture
 
