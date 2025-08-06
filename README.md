@@ -81,7 +81,25 @@ git clone https://github.com/SoyabKarki/Stonks
 cd Stonks
 ```
 
-### 2. Create Environment Variables
+
+### 2. Get API Keys
+
+#### Reddit API
+1. Go to [Reddit Apps](https://www.reddit.com/prefs/apps)
+2. Click "Create App" or "Create Another App"
+3. Choose "script" as app type
+4. Note down your `client_id` and `client_secret`
+5. For user agent, feel free to type in whatever you'd like!
+
+#### Alpha Vantage API
+1. Visit [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
+2. Get your free API key
+
+#### News API
+1. Visit [NewsAPI](https://newsapi.org/register)
+2. Register and get your API key
+
+### 3. Create Environment Variables
 
 Create a `.env` file in the project root:
 
@@ -105,23 +123,6 @@ ALPHA_VANTAGE_API_KEY=<key>
 NEWS_API_KEY=<key>
 ```
 
-### 3. Get API Keys
-
-#### Reddit API
-1. Go to [Reddit Apps](https://www.reddit.com/prefs/apps)
-2. Click "Create App" or "Create Another App"
-3. Choose "script" as app type
-4. Note down your `client_id` and `client_secret`
-5. For user agent, feel free to type in whatever you'd like!
-
-#### Alpha Vantage API
-1. Visit [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
-2. Get your free API key
-
-#### News API
-1. Visit [NewsAPI](https://newsapi.org/register)
-2. Register and get your API key
-
 ### 4. Build and Run
 
 ```bash
@@ -134,6 +135,21 @@ docker compose up -d
 # Check if services are running
 docker compose ps
 ```
+
+### 5. Monitor Pipeline
+
+1. **Open Airflow Web Interface**:
+   - Navigate to `http://localhost:8080` in your browser
+   - Login with:
+     - Username: `admin`
+     - Password: `password`
+
+2. **Monitor the Pipeline**:
+   - Find the `reddit_data_pipeline` DAG in the main dashboard
+   - **Manual Trigger**: Click the play button to run the pipeline immediately
+   - **View Progress**: Click on the DAG name to see the task graph and execution status
+   - **Check Logs**: Click on individual tasks to view detailed logs and troubleshoot issues
+   - **Monitor Schedule**: The pipeline runs automatically at midnight daily
 
 ## Database Schema
 
